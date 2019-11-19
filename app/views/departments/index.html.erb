@@ -1,0 +1,11 @@
+<h1>Departments#index</h1>
+<p>Find me in app/views/departments/index.html.erb</p>
+
+<ul>
+<% @departments.each do |department| %>
+  <li><%= department.name %> <%= link_to "delete", department_path(department),
+  method: :delete,
+  data: { confirm: "Are you sure?" } %></li>
+<% end %>
+</ul>
+
