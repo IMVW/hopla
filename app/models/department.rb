@@ -1,5 +1,4 @@
 class Department < ApplicationRecord
   validates :name, uniqueness: true
-
-  has_many :users, through: :user_departments
+  has_and_belongs_to_many :users
 end
