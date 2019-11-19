@@ -1,0 +1,9 @@
+<h1>Departments#new</h1>
+<p>Find me in app/views/departments/new.html.erb</p>
+
+
+<%= simple_form_for (@department) do |f| %>
+<h2>Create a new department</h2>
+  <%= f.input :name %>
+  <%= f.submit "add department", class: "btn btn-primary" %>
+<% end %>
