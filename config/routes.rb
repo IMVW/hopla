@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # resources :departments, only: [:new, :create, :edit, :update, :destroy]
   resources :departments
   devise_for :users
-  root to: 'pages#home'
+  root to: 'planner#index'
 
   get 'departments', to: 'departments#index'
   get 'planner', to: 'planner#index'
