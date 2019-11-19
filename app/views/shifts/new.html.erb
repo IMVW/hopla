@@ -1,0 +1,14 @@
+<h1>Shifts#new</h1>
+<p>Find me in app/views/shifts/new.html.erb</p>
+
+<%= simple_form_for (@shift) do |f| %>
+<h2>Create a new shift</h2>
+  <%= f.input :start_time %>
+  <%= f.input :end_time %>
+  <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
+
+   <%#= f.input :skill, as: :check_boxes, collection: User::SKILL, wrapper: :vertical_collection_inline %>
+  <%= f.submit "add shift", class: "btn btn-primary" %>
+<% end %>
+
+
