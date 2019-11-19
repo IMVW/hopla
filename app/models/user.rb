@@ -6,11 +6,13 @@ class User < ApplicationRecord
 
   has_and_belongs_to_many :departments
   has_many :shifts
-  mount_uploader :photo, PhotoUploader
+
 
   validates :role, presence: true
   validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates_uniqueness_of :first_name, scope: :last_name
+
+  mount_uploader :photo, PhotoUploader
 end
