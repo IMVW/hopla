@@ -2,12 +2,18 @@ skills = ["cocktails", "dessert", "barista", "chef", "sous chef", "oyster", "hos
 "operate grill", "operate oven", "ordering supplies"]
 pw = "123456"
 pwc = "123456"
-fn = ["Leon", "Rick", "Jean", "Elena", "Phillip", "Tom", "Maggie", "Patrick", "Luca", "Christina"]
-ln = ["Jansen", "Miller", "Hall", "Johnston", "Van Dijk", "Van de Berg", "Wolf", "Schmid", "Jacobs", "Fischer"]
+fn = ["Iris", "Rick", "Jean", "Elena", "Phillip", "Tom", "Maggie", "Patrick", "Luca", "Christina"]
+ln = ["Vermeulen", "Miller", "Hall", "Johnston", "Van Dijk", "Van de Berg", "Wolf", "Schmid", "Jacobs", "Fischer"]
 rl = ["Manager", "Employee"]
 
-puts "Creating 10 Users..."
-User.create!(email:"#{fn[0]}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[0], last_name: ln[0] , role: rl[0], phone_number:"+31-655-5288-83", skills: skills.sample(2), birthday:"20.05.1989")
+puts "Creating 1 Manager aka Iris..."
+iris = User.new(email:"#{fn[0]}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[0], last_name: ln[0] , role: rl[0], phone_number:"+31-655-5288-83", skills: skills.sample(2), birthday:"27.07.1994")
+iris.remote_photo_url = "https://res.cloudinary.com/siggimsiggi/image/upload/v1574175083/Restaurant_manager_iris_bd8tj9.jpg"
+iris.save
+
+puts "Created 1 Manager..."
+
+puts "Creating 9 Employees..."
 a_user = []
 a_user << User.create!(email:"#{fn[1].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[1], last_name: ln[1] , role: rl[1], phone_number:"", skills: skills.sample(3), birthday:"")
 a_user << User.create!(email:"#{fn[2].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[2], last_name: ln[2] , role: rl[1], phone_number:"", skills: skills.sample(2), birthday:"10.08.1964")
@@ -18,7 +24,7 @@ a_user << User.create!(email:"#{fn[6].downcase}@gmail.com", password: pw, passwo
 a_user << User.create!(email:"#{fn[7].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[7], last_name: ln[7] , role: rl[1], phone_number:"+31-455-5989-71", skills: skills.sample(2), birthday:"")
 a_user << User.create!(email:"#{fn[8].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[8], last_name: ln[8] , role: rl[1], phone_number:"", skills: skills.sample(4), birthday:"10.12.1992")
 a_user << User.create!(email:"#{fn[9].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[9], last_name: ln[9] , role: rl[1], phone_number:"+31-655-4182-35", skills: skills.sample(2), birthday:"")
-puts "Created 10 Users..."
+puts "Created 9 Employees..."
 
 
 puts "Creating 4 Departments..."
