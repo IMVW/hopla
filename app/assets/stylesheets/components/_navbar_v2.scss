@@ -1,0 +1,38 @@
+.navbar-v2 {
+  display: flex;
+  justify-content: flex-end;
+  background-color: transparent;
+  padding: 0;
+  a {
+    padding: 15px 20px;
+    margin: 10px 5px;
+    color: black;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: bolder;
+    border-bottom: 3px solid transparent;
+  }
+  a:hover {
+    border-bottom: 3px solid #FE5D49;
+  }
+}
+
+.navbar-v2.pages {
+  &+ * {
+    margin-top: 65px;
+  }
+}
+
+.navbar-v2.navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-v2.navbar-brand img {
+  width: 30px;
+  height: auto;
+}
+
+
+
+
+
