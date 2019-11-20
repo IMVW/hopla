@@ -1,0 +1,22 @@
+.base-container {
+  width: 98%;
+  height: 97vh;
+  margin: 12px 12px;
+  border-radius: 38px;
+  background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.base-container.image{
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://res.cloudinary.com/siggimsiggi/image/upload/v1574198947/shawn-ang-nmpW_WwwVSc-unsplash_hyy4gw.jpg');
+  background-size: cover;
+}
+
+.side-container {
+  width: 40%;
+  border-radius: 38px;
+  height: 97vh;
+  background-color: #F4F8FB;
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.25);
+}
+
