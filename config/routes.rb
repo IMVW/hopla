@@ -8,11 +8,19 @@ Rails.application.routes.draw do
   end
   resources :shifts, only: [:index, :show, :edit, :update, :destroy]
   devise_for :users
-  root to: 'planner#index'
 
+  resources :employees, only: [:index, :show, :new, :create]
+
+  # resources :manager_view, only: [:employees, :hr_overview]
+  get '/planner', to: 'departments#index'
+
+  root to: 'manager_view#dashboard'
+
+  # get 'manager', to: 'manager#index'
   get 'departments', to: 'departments#index'
-  get 'planner', to: 'planner#index'
   get 'shifts', to: 'shifts#index'
+  get 'employees', to: 'employees#index'
+  get 'mv/employees', to: 'manager_view#hr_overview'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
