@@ -2,8 +2,11 @@
 <p>Find me in app/views/shifts/show.html.erb</p>
 
 <h1><%= @shift.department.name %> shift</h1>
-<p> <strong> Assigned to: </strong> <%= @shift.user.first_name %> <%= @shift.user.last_name %></p>
-
-<% @shift.user.skills.each do |skill| %>
-<p><%= skill %></p>
+<% @shift.skills.each do |skill| %>
+  <p><%= skill %></p>
+<% end %>
+<% if @shift.user != nil %>
+  <p> <strong> Assigned to: </strong> <%= @shift.user.first_name %> <%= @shift.user.last_name %></p>
+<% else %>
+  <p>assign someone</p>
 <% end %>

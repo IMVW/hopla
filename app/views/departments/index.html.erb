@@ -2,10 +2,31 @@
 <p>Find me in app/views/departments/index.html.erb</p>
 
 <ul>
-<% @departments.each do |department| %>
-  <li><%= department.name %> <%= link_to "delete", department_path(department),
-  method: :delete,
-  data: { confirm: "Are you sure?" } %></li>
-<% end %>
+  <% @departments.each do |department| %>
+    <li>
+      <%= department.name %>
+        <%= link_to "edit", edit_department_path(department) %>
+
+        <%= link_to "delete", department_path(department),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+    </li>
+    <h6>shifts</h6>
+    <ul>
+      <% department.shifts.each do |shift| %>
+        <li><%= shift.id %> <%= shift.start_time %> - <%= shift.end_time %> skills:
+          <% if shift.skills != nil %>
+            <% shift.skills.each do |skill| %>
+              <%= skill %>
+            <% end %>
+          <% end %>
+          <%= link_to "edit", edit_shift_path(shift) %>
+          <%= link_to "delete", shift_path(shift),
+            method: :delete,
+            data: { confirm: "Are you sure?" }  %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 </ul>
 

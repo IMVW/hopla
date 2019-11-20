@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :shifts, only: [:new, :create]
   end
 
-  resources :shifts, only: [:index, :show]
+  resources :shifts, only: [:index, :show, :edit, :update, :destroy]
   devise_for :users
   root to: 'pages#home'
 
