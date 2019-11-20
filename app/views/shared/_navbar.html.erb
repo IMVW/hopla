@@ -1,35 +1,40 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://res.cloudinary.com/siggimsiggi/image/upload/v1574240304/hopla-icon-large_w86g2n.png" %>
-    <% end %>
-
+<!--
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> -->
 
-  <div class="nav-item dropdown">
-     <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <!-- <div class="nav-item dropdown">
+     <%#= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
      <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-       <%= link_to "Action", "#", class: "dropdown-item" %>
-       <%= link_to "Another action", "#", class: "dropdown-item" %>
-       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+       <%#= link_to "Action", "#", class: "dropdown-item" %>
+       <%#= link_to "Another action", "#", class: "dropdown-item" %>
+       <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
      </div>
-  </div>
+  </div> -->
 
-  <div>
-    <%= link_to "#", class: "nav-link" do %>
-      <i class="fas fa-th-large"></i> Dashboard
-    <% end %>
+ <div class="spaceholder top">
+  <%#= link_to "#", class: "navbar-brand" do %>
+    <%#= image_tag "https://res.cloudinary.com/siggimsiggi/image/upload/v1574240304/hopla-icon-large_w86g2n.png" %>
+    <%# end %>
   </div>
-  <div>
-    <%= link_to root_path, class: "nav-link" do %>
-    <i class="fas fa-calendar-day"></i> Planner
-     <% end %>
+  <div class="nav-links">
+    <div>
+      <%= link_to "#", class: "nav-link" do %>
+        <i class="fas fa-th-large"></i> Dashboard
+      <% end %>
+    </div>
+    <div>
+      <%= link_to root_path, class: "nav-link next-thing" do %>
+      <i class="fas fa-calendar-day"></i> Planner
+       <% end %>
+    </div>
+    <div>
+      <%= link_to root_path, class: "nav-link" do %>
+      <i class="fas fa-user-friends"></i> Employees
+      <% end %>
+    </div>
   </div>
-  <div>
-    <%= link_to root_path, class: "nav-link" do %>
-    <i class="fas fa-user-friends"></i> Employees
-    <% end %>
+   <div class="spaceholder end">
   </div>
-
 </div>
