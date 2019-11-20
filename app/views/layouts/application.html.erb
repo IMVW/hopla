@@ -13,13 +13,17 @@
     <% if user_signed_in? %>
       <div class="base-container">
         <div class="row">
-          <%= render 'shared/navbar' %>
-          <%= yield %>
+          <div class="col-sm-2 col-md-1">
+            <%= render 'shared/navbar' %>
+          </div>
+          <div class="col-sm-10 col-md-11">
+            <%= yield %>
+          </div>
         </div>
       </div>
     <% else %>
-        <%= render 'shared/navbar_v2' %>
-        <%= yield %>
+      <%= render 'shared/navbar_v2' %>
+      <%= yield %>
     <% end %>
       <%= render 'shared/flashes' %>
     <%= javascript_include_tag 'application' %>
