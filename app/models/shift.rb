@@ -1,6 +1,6 @@
 class Shift < ApplicationRecord
   belongs_to :department
-  belongs_to :user
+  belongs_to :user, optional: true
 
   validates :start_time, presence: true
   validates :end_time, presence: true

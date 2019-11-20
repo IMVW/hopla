@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_142228) do
     t.datetime "end_time"
     t.bigint "department_id"
     t.bigint "user_id"
+    t.string "skills", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_shifts_on_department_id"

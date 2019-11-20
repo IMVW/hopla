@@ -5,6 +5,7 @@ class CreateShifts < ActiveRecord::Migration[5.2]
       t.datetime :end_time
       t.references :department, foreign_key: true
       t.references :user, foreign_key: true
+      t.string :skills, array: true
 
       t.timestamps
     end

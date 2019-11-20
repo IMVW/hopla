@@ -1,0 +1,8 @@
+<h1>Shifts#index</h1>
+<p>Find me in app/views/shifts/index.html.erb</p>
+
+<% @shifts.each do |shift| %>
+  <h2><%= shift.user.first_name %></h2>
+  <p><%= shift.start_time %> - <%= shift.end_time %></p>
+  <h5><%= shift.department.name %></h5>
+<% end %>
