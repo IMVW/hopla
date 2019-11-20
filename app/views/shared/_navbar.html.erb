@@ -16,11 +16,19 @@
      </div>
   </div>
 
-
-  <%= link_to "Planner", planner_path, class: "nav-link" %>
-
-  <%= link_to "Employees", employees_path, class: "nav-link" %>
-
-  <%= link_to "Dashboard", root_path, class: "nav-link" %>
-
+  <div>
+    <%= link_to root_path, class: "nav-link" do %>
+      <i class="fas fa-th-large"></i> Dashboard
+    <% end %>
+  </div>
+  <div>
+    <%= link_to planner_path, class: "nav-link" do %>
+    <i class="fas fa-calendar-day"></i> Planner
+     <% end %>
+  </div>
+  <div>
+    <%= link_to employees_path, class: "nav-link" do %>
+    <i class="fas fa-user-friends"></i> Employees
+    <% end %>
+  </div>
 </div>
