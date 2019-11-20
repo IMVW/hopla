@@ -7,10 +7,6 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <%= link_to "Home", "#", class: "nav-link" %>
-
-  <%= link_to "Messages", "#", class: "nav-link" %>
-
   <div class="nav-item dropdown">
      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
      <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
@@ -19,4 +15,12 @@
        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
      </div>
   </div>
+
+
+  <%= link_to "Planner", "#", class: "nav-link" %>
+
+  <%= link_to "Employees", root_path, class: "nav-link" %>
+
+  <%= link_to "Departments", departments_path, class: "nav-link" %>
+
 </div>
