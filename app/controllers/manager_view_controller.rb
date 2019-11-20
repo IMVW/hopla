@@ -1,4 +1,6 @@
 class ManagerViewController < ApplicationController
+  before_action :authenticate_user!
+
   def dashboard
     employees_in_today
   end

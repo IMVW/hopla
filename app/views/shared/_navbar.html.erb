@@ -12,11 +12,11 @@
        <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
      </div>
   </div> -->
-  
+
  <div class="spaceholder top">
-  <%#= link_to "#", class: "navbar-brand" do %>
-    <%#= image_tag "https://res.cloudinary.com/siggimsiggi/image/upload/v1574240304/hopla-icon-large_w86g2n.png" %>
-    <%# end %>
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "https://res.cloudinary.com/siggimsiggi/image/upload/v1574240304/hopla-icon-large_w86g2n.png" %>
+    <% end %>
   </div>
   <div class="nav-links">
     <div>
@@ -35,6 +35,10 @@
       <% end %>
     </div>
    </div>
+
   <div class="spaceholder end">
+    <%= link_to destroy_user_session_path,method: :delete, class: "nav-link" do %>
+    Logout <i class="fas fa-sign-out-alt"></i>
+  <% end %>
   </div>
 </div>
