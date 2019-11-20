@@ -13,10 +13,15 @@
   <tr>
     <td><%= user.first_name %> <%= user.last_name %></td>
     <td><%= user.departments.map(&:name).join(", ") %></td>
-      <td><% user.skills.each do |skill| %>
-      <%= skill %>
-      <% end %>
-    </td>
+
+      <% if user.skills != nil %>
+          <% user.skills.each do |skill| %>
+          <td><%= skill %>
+        <% end %></td>
+      <% else %>
+        <td></td>
+    <% end %>
+
     <td><%= user.phone_number %></td>
     <td><%= user.email %></td>
     <td><%= user.birthday %></td>
