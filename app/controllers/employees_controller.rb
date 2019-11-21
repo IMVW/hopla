@@ -1,9 +1,10 @@
 class EmployeesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
     # Show a list of all the employees
-    @users = User.all
+    @users = User.all.order(:first_name)
     @departments = Department.all
 
     # @department = Department.find(params[:department_id])
