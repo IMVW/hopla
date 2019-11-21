@@ -19,18 +19,19 @@
     <% end %>
   </div>
   <div class="nav-links">
-    <div class= "nav-link" >
-      <%= active_link_to "TEST", root_path, active: :inclusive %>
-    </div>
     <div>
-      <%= active_link_to root_path, class: "nav-link" do %>
+      <%= active_link_to root_path, active: :exact, class: "nav-link" do %>
         <i class="fas fa-th-large"></i> Dashboard
       <% end %>
+    </div>
+    <div class="space">
     </div>
     <div>
       <%= active_link_to planner_path, class: "nav-link" do %>
       <i class="fas fa-calendar-day"></i> Planner
        <% end %>
+    </div>
+    <div class="space">
     </div>
     <div>
       <%= active_link_to employees_path, class: "nav-link" do %>
