@@ -24,23 +24,27 @@
   width: 100%;
   margin-left: 20px;
   background-color: #FF5D49;
-  // padding-left: 10px;
   a {
     padding-top:30px;
     padding-bottom:30px;
     margin-left: 40px;
     text-decoration: none;
     color: white;
-    // margin: 40px 0 15px 35px;
   }
   a:hover {
     border-radius: 50px 0 0 50px;
     background-color: white;
     color: #5358E2;
-    // :nth-child(n+1) {
     // border-radius: 0 33px 33px 0;
     // transition-timing-function: ease-in;
     // transition: 3s;
+  }
+}
+
+.nav-links.active {
+  background-color: black;
+  a {
+  color: black;
   }
 }
 .spaceholder {
