@@ -1,7 +1,6 @@
 <div class="content-container">
   <div class="shift-wrapper">
     <%= simple_form_for [@shift] do |f| %>
-
     <div class="d-flex align-items-center">
       <div class="input-field">
         <%= f.input :start_time %>
@@ -10,7 +9,7 @@
         <%= f.input :end_time, class: "input-field" %>
       </div>
       <div class="input-field">
-        <%= f.input :department_id, collection: Department.all %>
+        <%= f.input :department_id, collection: Department.all, selected: 1 %>
       </div>
   <%#= f.input :user, as: :radio_buttons, collection:  %>
 
@@ -20,22 +19,35 @@
     <% end %>
   </div>
 
-  <div class="planner-wrapper">
-    <div class="item">
+  <div class="container-wrapper">
+    <div class="time d-flex flex-column">
+      <p>00:00</p>
+      <p>03:00</p>
+      <p>06:00</p>
+      <p>09:00</p>
+      <p>12:00</p>
+      <p>15:00</p>
+      <p>18:00</p>
+      <p>21:00</p>
+      <p>00:00</p>
     </div>
-    <div class="item">
-    </div>
-    <div class="item">
-    </div>
-    <div class="item">
-    </div><div class="item">
-    </div><div class="item">
-    </div><div class="item">
-    </div><div class="item">
-    </div><div class="item">
-    </div><div class="item">
-    </div><div class="item">
-    </div><div class="item">
+    <div class="planner-wrapper">
+      <% @departments.each do |department| %>
+      <div class="item">
+        <div class="department-lable">
+        <%= department.name.upcase%>
+        </div>
+        <div class="department shifts">
+          <% department.shifts.each do |shift| %>
+          <div class="shift" style="height:<%= ((shift.end_time.hour - shift.start_time.hour)*4.4).round%>%; margin-top:<%= (shift.start_time.hour * 4.4).round%>%">
+            <p> Start:<%= shift.start_time.hour %>h</p>
+            <p>height:<%= ((shift.end_time.hour - shift.start_time.hour)*4.4).round%>%</p>
+            <p> End: <%= shift.end_time.hour %>h</p>
+          </div>
+      <% end %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
