@@ -1,34 +1,60 @@
+<div class="content-container">
 
-<table>
-  <tr>
-    <th> </th>
-    <th>Name</th>
-    <th>Last Name</th>
-    <th>Department</th>
-    <th>Skills</th>
-  </tr>
 
-  <% @users.each do |user| %>
-  <tr>
-    <td><%= link_to (cl_image_tag user.photo, height: 30, width: 30, crop: :fill) , employee_path(user) %></td>
-    <td><%= link_to user.first_name, employee_path(user) %></td>
-    <td><%= user.last_name %></td>
-    <td><%= user.departments.map(&:name).join(", ") %></td>
-
-      <% if user.skills != nil %>
-          <td><% user.skills.each do |skill| %>
-          <%= skill %>
-        <% end %></td>
+  <div class="button d-flex">
+    <%= link_to "Add employee", new_employee_path, class: "btn-v1"%>
+  </div>
+  <div class="table-wrapper">
+  <table class="employee-table">
+    <tr class ="table-head">
+      <th id="th-0"></th>
+      <th id="th-1">NAME</th>
+      <th id="th-2">LAST NAME</th>
+      <th id="th-3">DEPARTMENT</th>
+      <th id="th-4">SKILLS</th>
+      <th id="th-5"></th>
+    </tr>
+  </table>
+  <table class="employee-table table-body">
+    <% @users.each do |user| %>
+    <tr>
+      <% if user.photo.file != nil %>
+        <td id="td-0"><%= link_to (cl_image_tag user.photo, height: 40, width: 40, crop: :fill), employee_path(user) %> </td>
       <% else %>
-        <td></td>
+        <td id="td-0"><%= link_to (cl_image_tag "empty-avatar.png", width: 40, height: 40, crop: :fill), employee_path(user) %></td>
+      <% end %>
+      <td id="td-1"><%= user.first_name %></td>
+      <td id="td-2"><%= user.last_name %></td>
+      <td id="td-3"><%= user.departments.map(&:name).join(", ") %></td>
+      <% if user.skills != nil %>
+        <td id="td-4"><% user.skills.each do |skill| %>
+          <span class="btn-v2"><%= skill%></span>
+          <% end %>
+        </td>
+      <% else %>
+        <td id="td-4"></td>
+      <% end %>
+      <td id="td-5"><%= link_to employee_path(user) do %>
+        <i class="fas fa-search"></i>
+        <% end %>
+      </td>
+    </tr>
     <% end %>
-
-
-
-  </tr>
-  <% end %>
-</table>
-
-
-
-<%= link_to "New Employee", new_employee_path %>
+  </table>
+ </div>
+  <div class="department-wrapper">
+    <p >DEPARTMENTS:</p>
+    <div class="all-departments">
+    <% @departments.each do |department| %>
+    <div class="department">
+      <%= department.name %>
+    </div>
+    <% end %>
+  </div>
+  <div class="btn-v3 plus">
+    <%= link_to new_department_path do %>
+    +
+      <% end %>
+    </div>
+  </div>
+</div>
