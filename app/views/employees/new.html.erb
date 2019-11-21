@@ -1,7 +1,8 @@
 
-<%= simple_form_for(@employees, as: :employees, method: :post, url: employees_path) do |f| %>
+<%= simple_form_for(@employee, method: :post, url: employees_path) do |f| %>
   <%= f.input :email %>
   <%= f.input :last_name %>
   <%= f.input :first_name %>
-  <%= f.submit 'New employees' %>
+  <%= f.input :department_id, collection: @departments %>
+  <%= f.submit 'New employee' %>
 <% end %>
