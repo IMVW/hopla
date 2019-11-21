@@ -1,1 +1,33 @@
 Im the employ
+
+
+  <%=@user.photo %>
+
+  <%= @user.first_name %>
+  <%= @user.last_name %>
+
+   <%= @user.phone_number %>
+   <%= @user.email %>
+   <%= @user.birthday %>
+
+  <% if @user.skills != nil %>
+    <% @user.skills.each do |skill| %>
+      <p><%= skill %></p>
+    <% end %>
+  <% else %>
+  <p></p>
+  <% end %>
+
+
+<%= @user.departments.map(&:name).join(" ") %>
+
+
+<%= @user.departments.map(&:name).join(", ") %>
+
+
+<% @user.departments.each do |department| %>
+<p><%= department.name %></p>
+<% end %>
+
+
+<%= cl_image_tag @user.photo, height: 100, width: 100, crop: :fill %>
