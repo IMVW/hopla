@@ -1,7 +1,10 @@
 <div class="content-container">
+
+
+  <div class="button d-flex">
+    <%= link_to "Add employee", new_employee_path, class: "btn-v1"%>
+  </div>
   <div class="table-wrapper">
-
-
   <table class="employee-table">
     <tr class ="table-head">
       <th id="th-0"></th>
@@ -10,7 +13,6 @@
       <th id="th-3">DEPARTMENT</th>
       <th id="th-4">SKILLS</th>
       <th id="th-5"></th>
-
     </tr>
   </table>
   <table class="employee-table table-body">
@@ -19,8 +21,8 @@
       <% if user.photo.file != nil %>
         <td id="td-0"><%= link_to (cl_image_tag user.photo, height: 40, width: 40, crop: :fill), employee_path(user) %> </td>
       <% else %>
-      <td id="td-0"><%= link_to (cl_image_tag "empty-avatar.png", width: 40, height: 40, crop: :fill), employee_path(user) %></td>
-     <% end %>
+        <td id="td-0"><%= link_to (cl_image_tag "empty-avatar.png", width: 40, height: 40, crop: :fill), employee_path(user) %></td>
+      <% end %>
       <td id="td-1"><%= user.first_name %></td>
       <td id="td-2"><%= user.last_name %></td>
       <td id="td-3"><%= user.departments.map(&:name).join(", ") %></td>
@@ -32,17 +34,27 @@
       <% else %>
         <td id="td-4"></td>
       <% end %>
-
-       <td id="td-5"><%= link_to employee_path(user) do %>
-         <i class="fas fa-search"></i>
-         <% end %>
-       </td>
-
+      <td id="td-5"><%= link_to employee_path(user) do %>
+        <i class="fas fa-search"></i>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </table>
  </div>
-  <div class="button d-flex">
-    <%= link_to "Add employee", new_employee_path, class: "btn-v1"%>
+  <div class="department-wrapper">
+    <p >DEPARTMENTS:</p>
+    <div class="all-departments">
+    <% @departments.each do |department| %>
+    <div class="department">
+      <%= department.name %>
+    </div>
+    <% end %>
+  </div>
+  <div class="btn-v3 plus">
+    <%= link_to new_department_path do %>
+    +
+      <% end %>
+    </div>
   </div>
 </div>

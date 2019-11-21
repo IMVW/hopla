@@ -1,3 +1,7 @@
+.table-wrapper {
+  height: 450px;
+  overflow-y: auto;
+  border: 20px solid #F4F8FB;
 .employee-table {
   th {
     height: 80px;
@@ -16,19 +20,13 @@
 td {
   padding: 15px;
 }
-
 .table-head {
   position: fixed;
 }
-.table-wrapper {
-  height: 450px;
-  overflow-y: auto;
-  border: 20px solid #F4F8FB;
 }
 .table-body {
   margin-top: 80px;
 }
-
 #th-0 {
 width: 77px;
 background-color: #F4F8FB;
@@ -68,4 +66,46 @@ width: 260px;
 #td-5 {
 width: 40px;
 background-color: #F4F8FB
+}
+
+
+.department-wrapper {
+  background-color: #F4F8FB;
+  width: 900px;
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    margin-bottom: 0;
+    color:#FF5D49;
+    font-weight: bolder;
+    background-color: white;
+    padding: 20px;
+  }
+}
+.department {
+  background-color: white;
+  color:black;
+  padding: 5px 20px;
+  margin: 0 20px;
+}
+.plus {
+  a {color: white;
+    font-size: 25px;
+    padding: 0;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.btn-v3.plus {
+  margin-top: 0;
+}
+
+.all-departments {
+  display: flex;
+  overflow-x: auto;
 }
