@@ -31,3 +31,8 @@ Im the employ
 
 
 <%= cl_image_tag @user.photo, height: 100, width: 100, crop: :fill %>
+
+<%= link_to "edit", edit_employee_path(@user) %>
+<%= link_to "delete", employee_path(@user),
+  method: :delete,
+  data: { confirm: "Are you sure?" } %>

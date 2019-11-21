@@ -52,11 +52,12 @@ class EmployeesController < ApplicationController
 
     @departments = Department.all
     @user = User.find(params[:id])
-    if @user.update(user_params)
+    if @user.update(no_devise_user_params)
       department = Department.find(params[:user][:department_id].to_i)
       # DepartmentsUser.where(user_id: @user.id).destroy_all
       # @user.departments_users.destroy_all
-      DepartmentsUser.destroy(user: @user, department: department)
+      # DepartmentsUser.find(user: @user, department: department).destroy_all
+      @user.departments.destroy_all
       DepartmentsUser.create!(user: @user, department: department)
       redirect_to employees_path
       flash[:notice] = "Employee updated"
@@ -64,12 +65,13 @@ class EmployeesController < ApplicationController
       render :new
       flash[:alert] = "Something went wrong, please try again"
     end
-
     # update and save employee
   end
 
   def destroy
     # delete employee
+    @user.destroy
+    redirect_to employee_path, notice: "user deleted"
   end
 
   private
@@ -83,6 +85,18 @@ class EmployeesController < ApplicationController
     @all_users_skills_checkbox = @all_users_skills.map { |value| [value, value] }
   end
 
+  def no_devise_user_params
+    {
+      first_name: params[:user][:first_name],
+      last_name: params[:user][:last_name],
+      manager: params[:user][:manager],
+      skills: params[:user][:skills].reject { |c| c.empty? },
+      phone_number: params[:user][:phone_number],
+      birthday: params[:user][:birthday],
+      photo: params[:user][:photo],
+      photo_cache: params[:user][:photo_cache]
+    }
+  end
   def user_params
     params.require(:user).permit(:first_name, :last_name, :manager, :skills, :phone_number, :birthday, :photo, :photo_cache)
   end
