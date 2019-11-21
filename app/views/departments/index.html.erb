@@ -1,56 +1,42 @@
 <div class="content-container">
-
   <div class="shift-wrapper">
-    <h1>Shifts#new</h1>
-<p>Find me in app/views/shifts/new.html.erb</p>
+    <%= simple_form_for [@shift] do |f| %>
 
-<%= simple_form_for [@department, @shift] do |f| %>
-<h2>Create a new shift</h2>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
+    <div class="d-flex align-items-center">
+      <div class="input-field">
+        <%= f.input :start_time %>
+      </div>
+      <div class="input-field">
+        <%= f.input :end_time, class: "input-field" %>
+      </div>
+      <div class="input-field">
+        <%= f.input :department_id, collection: Department.all %>
+      </div>
   <%#= f.input :user, as: :radio_buttons, collection:  %>
 
    <%#= f.input :skill, as: :check_boxes, collection: User::SKILL, wrapper: :vertical_collection_inline %>
-  <%= f.submit "add shift", class: "btn btn-primary" %>
-<% end %>
-
-
+      <%= f.submit "ADD SHIFT", class: "btn-v1" %>
+    </div>
+    <% end %>
   </div>
 
-<div class="planner-wrapper">
-<h1>Departments#index</h1>
-<p>Find me in app/views/departments/index.html.erb</p>
-
-<ul>
-  <% @departments.each do |department| %>
-    <li>
-      <%= department.name %>
-        <%= link_to "edit", edit_department_path(department) %>
-
-        <%= link_to "delete", department_path(department),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-    </li>
-    <h6>shifts</h6>
-    <ul>
-      <% department.shifts.each do |shift| %>
-        <li><%= shift.id %> <%= shift.start_time %> - <%= shift.end_time %> skills:
-          <% if shift.skills != nil %>
-            <% shift.skills.each do |skill| %>
-              <%= skill %>
-            <% end %>
-          <% end %>
-          <%= link_to "edit", edit_shift_path(shift) %>
-          <%= link_to "delete", shift_path(shift),
-            method: :delete,
-            data: { confirm: "Are you sure?" }  %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-</ul>
-</div>
-
+  <div class="planner-wrapper">
+    <div class="item">
+    </div>
+    <div class="item">
+    </div>
+    <div class="item">
+    </div>
+    <div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div>
+  </div>
 </div>
 

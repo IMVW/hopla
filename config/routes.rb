@@ -3,10 +3,7 @@ Rails.application.routes.draw do
   # resources :departments, only: [:new, :create, :edit, :update, :destroy]
   resources :departments
 
-  resources :departments do
-    resources :shifts, only: [:new, :create]
-  end
-  resources :shifts, only: [:index, :show, :edit, :update, :destroy]
+  resources :shifts, only: [:index, :show, :edit, :update, :destroy, :create]
   devise_for :users
 
   resources :employees, only: [:index, :show, :new, :create]
