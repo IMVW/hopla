@@ -1,0 +1,16 @@
+.planner-wrapper {
+  margin: 30px;
+  display: flex;
+  overflow: auto;
+  background-color: #F4F8FB;
+  width: 95%;
+  height: 60vh;
+}
+
+
+.item {
+  flex: 0 0 400px;
+  height: 100%;
+  background-color: blue;
+  margin-right:10px;
+}

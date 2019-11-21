@@ -1,32 +1,42 @@
-<h1>Departments#index</h1>
-<p>Find me in app/views/departments/index.html.erb</p>
+<div class="content-container">
+  <div class="shift-wrapper">
+    <%= simple_form_for [@shift] do |f| %>
 
-<ul>
-  <% @departments.each do |department| %>
-    <li>
-      <%= department.name %>
-        <%= link_to "edit", edit_department_path(department) %>
+    <div class="d-flex align-items-center">
+      <div class="input-field">
+        <%= f.input :start_time %>
+      </div>
+      <div class="input-field">
+        <%= f.input :end_time, class: "input-field" %>
+      </div>
+      <div class="input-field">
+        <%= f.input :department_id, collection: Department.all %>
+      </div>
+  <%#= f.input :user, as: :radio_buttons, collection:  %>
 
-        <%= link_to "delete", department_path(department),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-    </li>
-    <h6>shifts</h6>
-    <ul>
-      <% department.shifts.each do |shift| %>
-        <li><%= shift.id %> <%= shift.start_time %> - <%= shift.end_time %> skills:
-          <% if shift.skills != nil %>
-            <% shift.skills.each do |skill| %>
-              <%= skill %>
-            <% end %>
-          <% end %>
-          <%= link_to "edit", edit_shift_path(shift) %>
-          <%= link_to "delete", shift_path(shift),
-            method: :delete,
-            data: { confirm: "Are you sure?" }  %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
-</ul>
+   <%#= f.input :skill, as: :check_boxes, collection: User::SKILL, wrapper: :vertical_collection_inline %>
+      <%= f.submit "ADD SHIFT", class: "btn-v1" %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="planner-wrapper">
+    <div class="item">
+    </div>
+    <div class="item">
+    </div>
+    <div class="item">
+    </div>
+    <div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div><div class="item">
+    </div>
+  </div>
+</div>
 
