@@ -4,30 +4,36 @@
 
   <table class="employee-table">
     <tr class ="table-head">
+      <th id="th-0"></th>
       <th id="th-1">NAME</th>
       <th id="th-2">LAST NAME</th>
       <th id="th-3">DEPARTMENT</th>
       <th id="th-4">SKILLS</th>
-      <th id="th-5">#</th>
+      <th id="th-5"></th>
 
     </tr>
   </table>
   <table class="employee-table table-body">
     <% @users.each do |user| %>
     <tr>
-      <td><%= link_to (cl_image_tag user.photo, height: 30, width: 30, crop: :fill) , employee_path(user) %><%= user.first_name %></td>
-      <td><%= user.last_name %></td>
-      <td id="td-department"><%= user.departments.map(&:name).join(", ") %></td>
+      <% if user.photo.file != nil %>
+        <td id="td-0"><%= link_to (cl_image_tag user.photo, height: 40, width: 40, crop: :fill), employee_path(user) %> </td>
+      <% else %>
+      <td id="td-0"><%= link_to (cl_image_tag "empty-avatar.png", width: 40, height: 40, crop: :fill), employee_path(user) %></td>
+     <% end %>
+      <td id="td-1"><%= user.first_name %></td>
+      <td id="td-2"><%= user.last_name %></td>
+      <td id="td-3"><%= user.departments.map(&:name).join(", ") %></td>
       <% if user.skills != nil %>
-        <td><% user.skills.each do |skill| %>
+        <td id="td-4"><% user.skills.each do |skill| %>
           <span class="btn-v2"><%= skill%></span>
           <% end %>
         </td>
       <% else %>
-        <td></td>
+        <td id="td-4"></td>
       <% end %>
 
-       <td><%= link_to employee_path(user) do %>
+       <td id="td-5"><%= link_to employee_path(user) do %>
          <i class="fas fa-search"></i>
          <% end %>
        </td>
@@ -40,7 +46,3 @@
     <%= link_to "Add employee", new_employee_path, class: "btn-v1"%>
   </div>
 </div>
-
-
-
-<%= link_to "New Employee", new_employee_path %>

@@ -4,6 +4,7 @@ class EmployeesController < ApplicationController
   def index
     # Show a list of all the employees
     @users = User.all
+
     # @department = Department.find(params[:department_id])
   end
 
