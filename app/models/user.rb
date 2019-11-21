@@ -16,4 +16,6 @@ class User < ApplicationRecord
   validates_uniqueness_of :first_name, scope: :last_name
 
   mount_uploader :photo, PhotoUploader
+
+
 end
