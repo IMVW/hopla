@@ -12,16 +12,16 @@ class EmployeesController < ApplicationController
   end
 
   def new
-    @employee = User.new
+    @user = User.new
     @departments = Department.all
-    # show form to Create a new employee
+    # show form to Create a new user
   end
 
   def create
     new_params = params[:user]
-        @departments = Department.all
-    @employee = User.new(email: new_params[:email], first_name: new_params[:first_name], last_name: new_params[:last_name], password:"password", password_confirmation: "password")
-    if @employee.save
+    @departments = Department.all
+    @user = User.new(email: new_params[:email], first_name: new_params[:first_name], last_name: new_params[:last_name], password:"password", password_confirmation: "password")
+    if @user.save
       department = Department.find(params[:user][:department_id].to_i)
       DepartmentsUser.create!(user: @user, department: department)
       redirect_to employees_path
@@ -34,11 +34,37 @@ class EmployeesController < ApplicationController
   end
 
   def edit
+    show_skills
+    @departments = Department.all
+
     # see who list employees
     # edit the employee that is selected
   end
 
   def update
+    # department = Department.find(params[:user][:department_id].to_i)
+    # DepartmentsUser.where(user: @user).destroy_all
+    # DepartmentsUser.create!(user: @user, department: department)
+
+    # @user.update(user_params)
+    # redirect_to employee_path
+    # flash[:notice] = "Employee updated"
+
+    @departments = Department.all
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      department = Department.find(params[:user][:department_id].to_i)
+      # DepartmentsUser.where(user_id: @user.id).destroy_all
+      # @user.departments_users.destroy_all
+      DepartmentsUser.destroy(user: @user, department: department)
+      DepartmentsUser.create!(user: @user, department: department)
+      redirect_to employees_path
+      flash[:notice] = "Employee updated"
+    else
+      render :new
+      flash[:alert] = "Something went wrong, please try again"
+    end
+
     # update and save employee
   end
 
@@ -50,5 +76,14 @@ class EmployeesController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def show_skills
+    @all_users_skills = User.all.pluck(:skills).flatten.uniq
+    @all_users_skills_checkbox = @all_users_skills.map { |value| [value, value] }
+  end
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :manager, :skills, :phone_number, :birthday, :photo, :photo_cache)
   end
 end

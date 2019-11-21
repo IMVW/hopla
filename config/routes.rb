@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :shifts, only: [:index, :show, :edit, :update, :destroy]
   devise_for :users
 
-  resources :employees, only: [:index, :show, :new, :create]
+  resources :employees, only: [:index, :show, :new, :create, :edit, :update]
 
   # resources :manager_view, only: [:employees, :hr_overview]
   get '/planner', to: 'departments#index'
