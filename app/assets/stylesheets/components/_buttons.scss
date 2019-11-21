@@ -1,19 +1,30 @@
 .btn-v1 {
-  background: #FF5D49;
+  background-color: #FF5D49;
   border: 0.5px solid #FF5D49;
   box-sizing: border-box;
   border-radius: 5px;
   padding: 5px 30px;
+  color: white;
+  letter-spacing: 0.2em;
+  margin-top: 20px;
   a {
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 16px;
-    letter-spacing: 0.09em;
-    color: white;
   }
-  a:hover {
+  &:hover {
+    text-decoration: none;
+    color: white;
 
   }
+}
+
+.btn-v2 {
+  border: 1px solid #FF5D49;
+  padding: 3px 5px;
+  border-radius: 12px;
+  font-weight: lighter;
+  // background-color: #F4F8FB;
 }

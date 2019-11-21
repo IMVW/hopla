@@ -1,0 +1,49 @@
+.employee-table {
+  th {
+    height: 80px;
+    color: #FF5D49;
+  }
+  td, th {
+    padding-right: 15px;
+    padding-left: 15px;
+    background-color: white;
+    border: 7px solid #F4F8FB;
+  }
+  i {
+    color: #FF5D49;
+  }
+}
+
+td {
+  padding: 15px;
+}
+
+.table-head {
+  position: fixed;
+}
+.table-wrapper {
+  height: 500px;
+  overflow-y: auto;
+  border: 20px solid #F4F8FB;
+}
+.table-body {
+  margin-top: 80px;
+}
+
+
+#th-1 {
+width: 104px;
+}
+
+#th-4 {
+width: 388px;
+}
+
+#th-5 {
+width: 53px;
+}
+#td-department {
+width: 146px;
+}
+
+
