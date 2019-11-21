@@ -6,7 +6,7 @@
   padding: 5px 30px;
   color: white;
   letter-spacing: 0.2em;
-  margin-top: 20px;
+  margin: 10px 0;
   a {
     font-family: Roboto;
     font-style: normal;
@@ -23,8 +23,34 @@
 
 .btn-v2 {
   border: 1px solid #FF5D49;
-  padding: 3px 5px;
+  padding: 1px 5px;
+  margin: 20px 0;
   border-radius: 12px;
   font-weight: lighter;
+  font-size: 14px;
   // background-color: #F4F8FB;
+}
+
+
+.btn-v3 {
+  background-color: #FF5D49;
+  border: 0.5px solid #FF5D49;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  letter-spacing: 0.2em;
+  margin-top: 20px;
+  a {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  &:hover {
+    text-decoration: none;
+    color: white;
+
+  }
 }
