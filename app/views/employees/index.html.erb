@@ -1,26 +1,29 @@
 
 <table>
   <tr>
+    <th> </th>
     <th>Name</th>
+    <th>Last Name</th>
     <th>Department</th>
     <th>Skills</th>
-    <th>Phone_number</th>
-    <th>Email</th>
-    <th>Birthday</th>
   </tr>
 
   <% @users.each do |user| %>
   <tr>
-    <td><%= user.first_name %> <%= user.last_name %></td>
+    <td><%= link_to (cl_image_tag user.photo, height: 30, width: 30, crop: :fill) , employee_path(user) %></td>
+    <td><%= link_to user.first_name, employee_path(user) %></td>
+    <td><%= user.last_name %></td>
     <td><%= user.departments.map(&:name).join(", ") %></td>
-      <td><% user.skills.each do |skill| %>
-      <%= skill %>
-      <% end %>
-    </td>
-    <td><%= user.phone_number %></td>
-    <td><%= user.email %></td>
-    <td><%= user.birthday %></td>
-     <td><%= link_to "see", employee_path(user) %></td>
+
+      <% if user.skills != nil %>
+          <td><% user.skills.each do |skill| %>
+          <%= skill %>
+        <% end %></td>
+      <% else %>
+        <td></td>
+    <% end %>
+
+
 
   </tr>
   <% end %>
