@@ -11,43 +11,50 @@
       <div class="input-field">
         <%= f.input :department_id, collection: Department.all, selected: 1 %>
       </div>
-  <%#= f.input :user, as: :radio_buttons, collection:  %>
+      <%#= f.input :user, as: :radio_buttons, collection:  %>
 
-   <%#= f.input :skill, as: :check_boxes, collection: User::SKILL, wrapper: :vertical_collection_inline %>
+      <%#= f.input :skill, as: :check_boxes, collection: User::SKILL, wrapper: :vertical_collection_inline %>
       <%= f.submit "ADD SHIFT", class: "btn-v1" %>
     </div>
     <% end %>
   </div>
 
+
+  <% @days.each do |day| %>
+
   <div class="container-wrapper">
     <div class="time d-flex flex-column">
       <% @hours.each do |time| %>
-        <p><%= time %></p>
+      <p><%= time %></p>
       <% end %>
     </div>
     <div class="planner-wrapper">
+
       <% @departments.each do |department| %>
 
       <div class="item">
       <!--  <div class="department-lable">
         <%#= department.name.upcase%>
-        </div> -->
-        <div class="department-shifts">
-          <% department.shifts.each_with_index do |shift, index| %>
-          <div class="shift" style="height:<%=((shift.end_time.hour - shift.start_time.hour)*4.16).round%>%; top:<%= (shift.start_time.hour * 4.16).round%>%; left: <%= index * 70 %>px">
-            <p> Start:<%= shift.start_time.hour %>h</p>
-            <p>height:<%= ((shift.end_time.hour - shift.start_time.hour)*4.16).round%>%</p>
-            <p> End: <%= shift.end_time.hour %>h</p>
-            <p> Date: <%= shift.end_time.day %>.<%= shift.end_time.month %>.</p>
-            <%= link_to "delete", shift_path(shift),
-              method: :delete,
-              data: { confirm: "Are you sure?" }  %>
-          </div>
-        <% end %>
+      </div> -->
+      <div class="department-shifts">
+        <% department.shifts.where('start_time BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).all.each_with_index do |shift, index| %>
+        <div class="shift" style="height:<%=((shift.end_time.hour - shift.start_time.hour)*4.16).round%>%; top:<%= (shift.start_time.hour * 4.16).round%>%; left: <%= index * 90 %>px">
+          <p> Start:<%= shift.start_time.hour %>h</p>
+          <p>height:<%= ((shift.end_time.hour - shift.start_time.hour)*4.16).round%>%</p>
+          <p> End: <%= shift.end_time.hour %>h</p>
+          <p> Date: <%= shift.end_time.day %>.<%= shift.end_time.month %>.</p>
+          <%= link_to "edit", edit_shift_path(shift) %>
+          <%= link_to "delete", shift_path(shift),
+          method: :delete,
+          data: { confirm: "Are you sure?" }  %>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
+    <% end %>
   </div>
+</div>
+<% end %>
+
 </div>
 

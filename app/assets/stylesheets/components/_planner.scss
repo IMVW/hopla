@@ -1,8 +1,10 @@
 .container-wrapper {
   display: flex;
   justify-content: flex-start;
-  overflow: auto;
   width: 100%;
+  margin-bottom: 1em;
+  overflow: auto;
+  margin-top: 166px;
 }
 .time {
       height: 568px;
@@ -16,13 +18,13 @@
   p {
     margin-bottom: 1.5px;
   }
-
 }
 .planner-wrapper {
   flex-grow: 1;
   background-color: #F4F8FB;
   display: flex;
   margin: 0px;
+  overflow: auto;
 }
 
 
@@ -56,8 +58,8 @@
 }
 
 .shift {
-  width: 60px;
-  font-size: 8px;
+  width: 80px;
+  font-size: 13px;
   position: absolute;
   background-color: white;
   margin-bottom: 0px;

@@ -6,6 +6,7 @@ class DepartmentsController < ApplicationController
     @shift = Shift.new
     @departments = Department.all
     @hours = hours_in_day
+    @days = days_in_year
   end
 
   def new
@@ -49,6 +50,6 @@ class DepartmentsController < ApplicationController
   end
 
   def days_in_year
-
+    (Date.today..Date.today + 30.days).to_a
   end
 end
