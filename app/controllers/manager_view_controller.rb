@@ -3,6 +3,7 @@ class ManagerViewController < ApplicationController
 
   def dashboard
     employees_in_today
+    @user = current_user
   end
 
   def hr_overview
