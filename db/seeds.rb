@@ -1,5 +1,5 @@
-skills = ["cocktails", "dessert", "barista", "chef", "sous chef", "oyster", "host", "balencing", "keys", "stock-taking", "reservation scheduling", "operate fryer",
-"operate grill", "operate oven", "ordering supplies"]
+skills = ["cocktails", "dessert", "barista", "chef", "sous-chef", "oyster", "host", "balencing", "keys", "stock-taking", "reservation", "fryer",
+"grill", "suppliers", "opening", "closing"]
 pw = "123456"
 pwc = "123456"
 fn = ["Iris", "Rick", "Jean", "Elena", "Phillip", "Tom", "Maggie", "Patrick", "Luca", "Christina"]

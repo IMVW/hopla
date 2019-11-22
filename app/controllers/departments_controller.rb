@@ -3,6 +3,7 @@ class DepartmentsController < ApplicationController
   before_action :set_department, only: [:edit, :update, :destroy]
 
   def index
+    @shift = Shift.new
     @departments = Department.all
   end
 

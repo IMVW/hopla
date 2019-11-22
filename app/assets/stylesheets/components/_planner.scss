@@ -1,0 +1,65 @@
+.planner-wrapper {
+  margin: 0px;
+  flex-grow: 1;
+  display: flex;
+  overflow: auto;
+  background-color: #F4F8FB;
+  width: 85%;
+  height: 60vh;
+  padding: 10px;
+}
+
+
+.item {
+  flex: 0 0 400px;
+  height: 100%;
+  background-color: blue;
+  margin-right:10px;
+}
+
+.time {
+  width: 40px;
+  height: 80%;
+  justify-content: space-between;
+  padding-top: 40px;
+  p {
+    padding-bottom: 13px;
+  }
+
+}
+
+.department-lable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color: #FF5D49;
+  background-color: white;
+  margin-bottom: 0px;
+  font-weight: bolder;
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 95%
+}
+
+
+.department.shifts {
+  display: flex;
+  background-color: blue;
+  padding: 0;
+  margin: 0;
+  height:92%;
+  width: 100%;
+}
+
+.shift {
+  background-color: white;
+  margin: 5px;
+  width: 30%;
+  p {
+    margin-bottom: 0;
+  }
+}
