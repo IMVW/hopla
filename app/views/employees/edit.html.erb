@@ -1,0 +1,14 @@
+
+
+<%= simple_form_for(@user, method: :patch, url: employee_path) do |f| %>
+  <%= f.input :email %>
+  <%= f.input :last_name %>
+  <%= f.input :first_name %>
+  <%= f.input :department_id, collection: @departments, selected: @user.departments %>
+
+  <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
+
+  <%#= f.input :user, as: :radio_buttons, collection:  %>
+
+  <%= f.submit 'edit employee' %>
+<% end %>

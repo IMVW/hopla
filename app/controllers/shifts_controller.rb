@@ -17,8 +17,6 @@ class ShiftsController < ApplicationController
 
   def create
     @shift = Shift.new(shift_params)
-    @department = Department.find(params[:department_id])
-    @shift.department = @department
     @shift.skills = params[:shift][:skills]
     # @shift.department = @department
     if @shift.save
@@ -47,7 +45,7 @@ class ShiftsController < ApplicationController
   private
 
   def shift_params
-    params.require(:shift).permit(:start_time, :end_time, :skills)
+    params.require(:shift).permit(:start_time, :end_time, :skills, :department_id)
   end
 
   def set_shift
