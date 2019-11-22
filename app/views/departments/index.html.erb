@@ -3,7 +3,7 @@
     <%= simple_form_for [@shift] do |f| %>
     <div class="d-flex align-items-center">
       <div class="input-field">
-        <%= f.input :start_time %>
+        <%= f.input :start_time%>
       </div>
       <div class="input-field">
         <%= f.input :end_time, class: "input-field" %>
@@ -43,6 +43,7 @@
             <p> Start:<%= shift.start_time.hour %>h</p>
             <p>height:<%= ((shift.end_time.hour - shift.start_time.hour)*4.4).round%>%</p>
             <p> End: <%= shift.end_time.hour %>h</p>
+            <p> Date: <%= shift.end_time.day %>.<%= shift.end_time.month %>.</p>
           </div>
       <% end %>
         </div>

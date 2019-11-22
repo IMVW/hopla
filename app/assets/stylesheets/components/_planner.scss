@@ -2,7 +2,6 @@
   margin: 0px;
   flex-grow: 1;
   display: flex;
-  overflow: auto;
   background-color: #F4F8FB;
   width: 85%;
   height: 60vh;
@@ -42,6 +41,7 @@
 .container-wrapper {
   display: flex;
   justify-content: flex-start;
+  overflow: auto;
   width: 95%
 }
 
