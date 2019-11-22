@@ -5,6 +5,7 @@ class DepartmentsController < ApplicationController
   def index
     @shift = Shift.new
     @departments = Department.all
+    @hours = hours_in_day
   end
 
   def new
@@ -41,5 +42,13 @@ class DepartmentsController < ApplicationController
 
   def set_department
     @department = Department.find(params[:id])
+  end
+
+  def hours_in_day
+    ['12:00am'] + (1..11).map {|h| "#{h}:00am"} + ['12:00pm'] + (1..11).map {|h| "#{h}:00pm"}
+  end
+
+  def days_in_year
+
   end
 end

@@ -1,30 +1,36 @@
-.planner-wrapper {
-  margin: 0px;
-  flex-grow: 1;
+.container-wrapper {
   display: flex;
+  justify-content: flex-start;
+  overflow: auto;
+  width: 100%;
+}
+.time {
+      height: 568px;
+    font-size: 15px;
+    /* margin-top: 25px; */
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    background: white;
+  p {
+    margin-bottom: 1.5px;
+  }
+
+}
+.planner-wrapper {
+  flex-grow: 1;
   background-color: #F4F8FB;
-  width: 85%;
-  height: 60vh;
-  padding: 10px;
+  display: flex;
+  margin: 0px;
 }
 
 
 .item {
-  flex: 0 0 400px;
-  height: 100%;
-  background-color: blue;
+  flex: 1 0 400px;
+  height: 568px;
+  background-color: #ECB932;
   margin-right:10px;
-}
-
-.time {
-  width: 40px;
-  height: 80%;
-  justify-content: space-between;
-  padding-top: 40px;
-  p {
-    padding-bottom: 13px;
-  }
-
 }
 
 .department-lable {
@@ -38,28 +44,27 @@
   font-weight: bolder;
 }
 
-.container-wrapper {
+.department-shifts {
+  margin-left: 60px;
   display: flex;
-  justify-content: flex-start;
-  overflow: auto;
-  width: 95%
-}
-
-
-.department.shifts {
-  display: flex;
-  background-color: blue;
+  background-color: #ECB932;
   padding: 0;
   margin: 0;
-  height:92%;
+  height:100%;
   width: 100%;
+  position: relative;
 }
 
 .shift {
+  width: 60px;
+  font-size: 8px;
+  position: absolute;
   background-color: white;
-  margin: 5px;
-  width: 30%;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  margin-right: 5px;
   p {
     margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
