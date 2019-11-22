@@ -1,0 +1,7 @@
+meta.yml
+
+meta_product_name: "Hopla"
+meta_title: "Hopla - Hospitality Planning made easy, clear and flexible"
+meta_description: "Relevant description"
+meta_image: "meta_image_hopla.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
