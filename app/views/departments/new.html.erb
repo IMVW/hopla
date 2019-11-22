@@ -5,5 +5,8 @@
 <%= simple_form_for (@department) do |f| %>
 <h2>Create a new department</h2>
   <%= f.input :name %>
+  <%= f.input :color, as: :colorpicker %>
   <%= f.submit "add department", class: "btn btn-primary" %>
 <% end %>
+
+

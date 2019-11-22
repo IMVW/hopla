@@ -5,4 +5,5 @@ class Department < ApplicationRecord
   validates :name, presence: true
   has_many :department_users
   has_many :users, through: :departments_users
+  has_many :colors
 end
