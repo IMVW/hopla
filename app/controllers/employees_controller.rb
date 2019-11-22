@@ -23,8 +23,13 @@ class EmployeesController < ApplicationController
   def create
     new_params = params[:user]
     @departments = Department.all
+    
+    @employee = User.new(email: new_params[:email], first_name: new_params[:first_name], last_name: new_params[:last_name], password:"password", password_confirmation: "password")
+    if @employee.save
+      
     @user = User.new(email: new_params[:email], first_name: new_params[:first_name], last_name: new_params[:last_name], password:"password", password_confirmation: "password")
     if @user.save
+      
       department = Department.find(params[:user][:department_id].to_i)
       DepartmentsUser.create!(user: @user, department: department)
       redirect_to employees_path
@@ -32,6 +37,15 @@ class EmployeesController < ApplicationController
     else
       render :new
       flash[:alert] = "Something went wrong, please try again"
+    end
+    @employee = current_user.employees.build(employee_params)
+
+    if @employee.save
+      mail = EmployeeMailer.with(employee: @employee).create_confirmation
+      mail.deliver_now
+      redirect_to employee_path(@employee)
+    else
+      render :new
     end
     # Create and save a new employee
   end
