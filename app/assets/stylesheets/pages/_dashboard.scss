@@ -1,0 +1,41 @@
+.employee-status {
+background-color: #F4F8FB;
+padding: 20px;
+display: flex;
+width:80%;
+}
+
+
+.department-lable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color: #FF5D49;
+  background-color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  font-weight: bolder;
+}
+
+.daily-department-shifts{
+  margin: 10px 20px;
+}
+
+
+.employee-detail{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 10px 10px;
+  width: 80px;
+}
+
+.photo {
+  margin-bottom: 10px;
+}
+
+.time-shift{
+  font-weight: lighter;
+  font-size: 13px;
+}

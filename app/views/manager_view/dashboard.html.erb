@@ -8,3 +8,40 @@
      </div>
   </div>
 
+<div class="employee-status">
+  <% @departments.each do |department| %>
+    <div class="daily-department-shifts">
+      <div class="department-lable">
+        <%= department.name %>
+      </div>
+    <!-- <div class="d-flex"> -->
+      <div class="employee-detail d-flex" style="background-color: #3DD0DE80">
+        <% department.shifts.each do |shift| %>
+          <% if shift.start_time.day == Date.today.day && shift.start_time.month == Date.today.month %>
+            <% if shift.user != nil %>
+              <% if shift.user.photo.file != nil %>
+              <div class="photo">
+                <%=(cl_image_tag shift.user.photo, height: 40, width: 40, crop: :fill)%>
+              </div>
+            <% else %>
+              <div class="photo" style="border-color: 3px solid #3DD0DE">
+                <%=(cl_image_tag "empty-avatar.png", width: 40, height: 40, crop: :fill)%>
+              </div>
+            <% end %>
+            <div class="name">
+              <%= shift.user.first_name%>
+            </div>
+             <div class="time-shift">
+                <%= shift.start_time.strftime('%H:%M')%> - <%= shift.end_time.strftime('%H:%M')%>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+

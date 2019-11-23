@@ -1,82 +1,80 @@
 <div class="content-container">
-
-
-  <div class="button d-flex">
+  <div class="button d-flex justify-content-end">
     <%= link_to "Add employee", new_employee_path, class: "btn-v1"%>
   </div>
   <div class="table-wrapper">
-  <table class="employee-table">
-    <tr class ="table-head">
-      <th id="th-0"></th>
-      <th id="th-1">NAME</th>
-      <th id="th-2">LAST NAME</th>
-      <th id="th-3">DEPARTMENT</th>
-      <th id="th-4">SKILLS</th>
-      <th id="th-5"></th>
-    </tr>
-  </table>
-  <table class="employee-table table-body">
-    <% @users.each do |user| %>
-    <tr>
-      <% if user.photo.file != nil %>
-       <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag user.photo, height: 40, width: 40, crop: :fill)%></td>
-      <% else %>
-       <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag "empty-avatar.png", width: 40, height: 40, crop: :fill)%></td>
-      <% end %>
+    <table class="employee-table">
+      <tr class ="table-head">
+        <th id="th-0"></th>
+        <th id="th-1">NAME</th>
+        <th id="th-2">LAST NAME</th>
+        <th id="th-3">DEPARTMENT</th>
+        <th id="th-4">SKILLS</th>
+        <th id="th-5"></th>
+      </tr>
+    </table>
+    <table class="employee-table table-body">
+      <% @users.each do |user| %>
+      <tr>
+        <% if user.photo.file != nil %>
+         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag user.photo, height: 40, width: 40, crop: :fill)%></td>
+        <% else %>
+         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag "empty-avatar.png", width: 40, height: 40, crop: :fill)%></td>
+        <% end %>
 
-      <td id="td-1"><%= user.first_name %></td>
-      <td id="td-2"><%= user.last_name %></td>
-      <td id="td-3"><%= user.departments.map(&:name).join(", ") %></td>
+        <td id="td-1"><%= user.first_name %></td>
+        <td id="td-2"><%= user.last_name %></td>
+        <td id="td-3"><%= user.departments.map(&:name).join(", ") %></td>
 
-      <% if user.skills != nil %>
-        <td id="td-4"><% user.skills.each do |skill| %>
-          <span class="btn-v2"><%= skill%></span>
+        <% if user.skills != nil %>
+          <td id="td-4"><% user.skills.each do |skill| %>
+            <span class="btn-v2"><%= skill%></span>
+            <% end %>
+          </td>
+        <% else %>
+          <td id="td-4"></td>
+        <% end %>
+        <td id="td-5"><%= link_to employee_path(user) do %>
+          <i class="fas fa-search"></i>
           <% end %>
         </td>
-      <% else %>
-        <td id="td-4"></td>
-      <% end %>
-      <td id="td-5"><%= link_to employee_path(user) do %>
-        <i class="fas fa-search"></i>
-        <% end %>
-      </td>
-    </tr>
+      </tr>
 
-    <div class="modal fade" id="<%="userModal#{user.id}"%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-           <div class= "card-container">
-             <div class="upper-container">
-                 <img src=<%=user.photo %> alt="" class="image-container">
-             </div>
-               <div class="lower-container">
-                <div class="text">
-                  <h3><%= user.first_name %> <%= user.last_name %></h3>
-                  <%if user.skills != nil %>
-                  <% user.skills.each do|skill| %>
-                   <h4><i class="fas fa-toolbox"></i><%= skill %></h4>
-                  <% end %>
-                     <% else %>
-                       <h4><i class="fas fa-toolbox"></i></h4>
-                  <% end %>
-                    <h4><i class="fas fa-phone  "></i><%= user.phone_number %></h4>
-                    <h4><i class="fas fa-envelope  "></i><%= user.email %></h4>
-                    <h4><i class="fas fa-birthday-cake  "></i><%= user.birthday %></h4>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                </div>
+      <div class="modal fade" id="<%="userModal#{user.id}"%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+          <div class="modal-content">
+             <div class= "card-container">
+               <div class="upper-container">
+                   <img src=<%=user.photo %> alt="" class="image-container">
                </div>
-           </div>
-        </div>
-       </div>
-    </div>
-    <% end %>
-  </table>
+                 <div class="lower-container">
+                  <div class="text">
+                    <h3><%= user.first_name %> <%= user.last_name %></h3>
+                    <%if user.skills != nil %>
+                    <% user.skills.each do|skill| %>
+                     <h4><i class="fas fa-toolbox"></i><%= skill %></h4>
+                    <% end %>
+                       <% else %>
+                         <h4><i class="fas fa-toolbox"></i></h4>
+                    <% end %>
+                      <h4><i class="fas fa-phone  "></i><%= user.phone_number %></h4>
+                      <h4><i class="fas fa-envelope  "></i><%= user.email %></h4>
+                      <h4><i class="fas fa-birthday-cake  "></i><%= user.birthday %></h4>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                  </div>
+                 </div>
+             </div>
+          </div>
+         </div>
+      </div>
+      <% end %>
+    </table>
  </div>
   <div class="department-wrapper">
     <p >DEPARTMENTS:</p>
     <div class="all-departments">
-    <% @departments.each do |department| %>
+      <% @departments.each do |department| %>
     <div class="department">
       <%= department.name %>
     </div>
@@ -85,8 +83,7 @@
   <div class="btn-v3 plus">
     <%= link_to new_department_path do %>
     +
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
 
