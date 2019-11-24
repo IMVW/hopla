@@ -28,6 +28,7 @@ class ShiftsController < ApplicationController
 
   def edit
     show_skills
+    @users = user_name
   end
 
   def update
@@ -45,7 +46,7 @@ class ShiftsController < ApplicationController
   private
 
   def shift_params
-    params.require(:shift).permit(:start_time, :end_time, :skills, :department_id)
+    params.require(:shift).permit(:start_time, :end_time, :skills, :department_id, :user_id)
   end
 
   def set_shift
@@ -55,5 +56,14 @@ class ShiftsController < ApplicationController
   def show_skills
     @all_users_skills = User.all.pluck(:skills).flatten.uniq
     @all_users_skills_checkbox = @all_users_skills.map { |value| [value, value] }
+  end
+
+  def user_name
+    users = User.all
+    @a_user = []
+    users.each do |user|
+      @a_user << [user.first_name, user.id]
+    end
+    return @a_user
   end
 end

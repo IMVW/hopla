@@ -1,11 +1,3 @@
-<div>
-This is for you Alisa 😸
-</div>
-
-# display list of users that are in today
-
-
-<%= @employees_in_today %>
 
   <div class="dropdown">
      <%= cl_image_tag @user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -15,3 +7,4 @@ This is for you Alisa 😸
        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
      </div>
   </div>
+
