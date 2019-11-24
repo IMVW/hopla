@@ -1,11 +1,35 @@
+.upper-content {
+  display:flex;
+  .left-content {
+    flex-grow: 1;
+  }
+}
+.logged-in-user{
+  text-align: center;
+  padding: 25px 25px;
+.avatar-image{
+  width: 130px;
+  height: 130px;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: block;
+  border: 5px solid #FF5D49;
+  }
+  p {
+  letter-spacing: 0.2em;
+  color: #FF5D49;
+  font-weight: bolder;
+  padding-top: 5px;
+  }
+}
+
+// Employees in today----------------------------------------------------------
 .employee-status {
 background-color: #F4F8FB;
 padding: 20px;
 display: flex;
 width:80%;
 }
-
-
 .department-lable {
   display: flex;
   justify-content: center;
@@ -17,12 +41,9 @@ width:80%;
   margin: 10px 0;
   font-weight: bolder;
 }
-
 .daily-department-shifts{
   margin: 10px 20px;
 }
-
-
 .employee-detail{
   display: flex;
   flex-direction: column;
