@@ -1,4 +1,8 @@
 import "bootstrap";
+import $ from 'jquery';
+import iniDatePicker from 'datetimepicker';
+
+iniDatePicker();
 
 
 
@@ -13,9 +17,4 @@ if (document.getElementById('td-0')) {
     document.querySelector('bg-modal').style.display ='flex'
   })
 }
-
-import $ from 'jquery';
-import iniDatePicker from 'datetimepicker';
-
-iniDatePicker();
 
