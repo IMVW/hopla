@@ -1,43 +1,25 @@
-<div class="content-container">
-  <div class="shift-wrapper">
-    <%= simple_form_for [@shift] do |f| %>
-    <div class="d-flex align-items-center">
-      <div class="input-field">
-        <%= f.input :start_time%>
-      </div>
-      <div class="input-field">
-        <%= f.input :end_time, class: "input-field" %>
-      </div>
-      <div class="input-field">
-        <%= f.input :department_id, collection: Department.all, selected: 1 %>
-      </div>
-      <%#= f.input :user, as: :radio_buttons, collection:  %>
+<div class="text-center">
+  <h1>
+    Scheduling
+  </h1>
+</div>
 
-      <%#= f.input :skill, as: :check_boxes, collection: User::SKILL, wrapper: :vertical_collection_inline %>
+<div class="calendar-container">
+  <div class="calendar-grid">
+
+  </div>
+  <div class="calendar-form">
+    <%= simple_form_for [@shift] do |f| %>
+        <%= f.input :start_time%>
+        <%= f.input :end_time, class: "input-field" %>
+        <%= f.input :department_id, collection: Department.all, selected: 1 %>
       <%= f.submit "ADD SHIFT", class: "btn-v1" %>
-    </div>
     <% end %>
   </div>
-
-<div class="scroll">
-  <div class="planner-wrapper">
-    <table style="width:1000px">
-      <tr>
-        <th><h2>TIME</h2></th>
-        <% @departments.each do |department| %>
-        <th><h2><%= department.name %></h2></th>
-        <% end %>
-      </tr>
-    </table>
+  <div class="calendar-overview">
+    <%= render partial: "calendar_overview" %>
   </div>
+  <div class="calendar-availability">
 
-
-     <table>
-       <div class="">
-        <% @hours.each do |time| %>
-        <tr><p><%= time %></p></tr>
-        <% end %>
-        </div>
-    </table>
-
+  </div>
 </div>
