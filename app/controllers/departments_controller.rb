@@ -16,7 +16,10 @@ class DepartmentsController < ApplicationController
   def create
     @department = Department.new(department_params)
     if @department.save
-      redirect_to departments_path, notice: "New department created"
+      respond_to do |format|
+        format.html { redirect_to departments_path, notice: "New department created" }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
       render :new
     end
