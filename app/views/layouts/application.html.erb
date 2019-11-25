@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <%= favicon_link_tag 'favicon-32x32.png' %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Hopla</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <title><%= meta_title %></title>
+    <meta name="description" content="<%= meta_description %>">
+
+    <!-- Facebook Open Graph data -->
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
