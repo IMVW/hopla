@@ -10,8 +10,8 @@
   </div>
   <div class="calendar-form">
     <%= simple_form_for [@shift] do |f| %>
-        <%= f.input :start_time%>
-        <%= f.input :end_time, class: "input-field" %>
+        <%= f.input :start_time, as: 'string', input_html: {class: 'picker'}%>
+        <%= f.input :end_time, as: 'string', input_html: {class: 'picker'} %>
         <%= f.input :department_id, collection: Department.all, selected: 1 %>
       <%= f.submit "ADD SHIFT", class: "btn-v1" %>
     <% end %>
