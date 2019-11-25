@@ -3,5 +3,6 @@
 <%= simple_form_for (@department) do |f| %>
 <h2>Edit department</h2>
   <%= f.input :name %>
+  <%= f.input :color, as: :color %>
   <%= f.submit "update department", class: "btn btn-primary" %>
 <% end %>
