@@ -2,70 +2,70 @@
   height: 450px;
   overflow-y: auto;
   border: 10px solid #F4F8FB;
-.employee-table {
-  th {
-    height: 60px;
-    color: #FF5D49;
+  .employee-table {
+    th {
+      height: 60px;
+      color: #FF5D49;
+    }
+    td, th {
+      padding-right: 15px;
+      padding-left: 15px;
+      background-color: white;
+      border: 7px solid #F4F8FB;
+    }
+    i {
+      color: #FF5D49;
+    }
   }
-  td, th {
-    padding-right: 15px;
-    padding-left: 15px;
-    background-color: white;
-    border: 7px solid #F4F8FB;
+  td {
+    padding: 5px 15px;
   }
-  i {
-    color: #FF5D49;
+  .table-head {
+    position: fixed;
   }
-}
-td {
-  padding: 5px 15px;
-}
-.table-head {
-  position: fixed;
-}
 }
 .table-body {
   margin-top: 60px;
 }
 #th-0 {
-width: 77px;
-background-color: #F4F8FB;
+  width: 77px;
+  background-color: #F4F8FB;
 }
 #th-1 {
-width: 125px;
+  width: 125px;
 }
 #th-2 {
-width: 170px;
+  width: 170px;
 }
 #th-3 {
-width: 170px;
+  width: 170px;
 }
 #th-4 {
-width: 340px;
+  width: 340px;
 }
 #th-5 {
-width: 64px;
-background-color: #F4F8FB;
+  width: 64px;
+  background-color: #F4F8FB;
 }
 #td-0 {
-width: 77px;
-background-color: #F4F8FB;
+  width: 77px;
+  background-color: #F4F8FB;
 }
 #td-1 {
-width: 125px;
+  width: 125px;
 }
 #td-2 {
-width: 170px;
+  width: 170px;
 }
 #td-3 {
-width: 170px;
+  width: 170px;
 }
 #td-4 {
-width: 340px;
+  width: 340px;
 }
 #td-5 {
-width: 40px;
-background-color: #F4F8FB
+  width: 40px;
+  background-color: #F4F8FB
 }
 
 .department-wrapper {
@@ -86,7 +86,7 @@ background-color: #F4F8FB
 }
 .department {
   background-color: white;
-  color:black;
+  color: black;
   padding: 5px 20px;
   margin: 0 20px;
 }
@@ -108,3 +108,7 @@ background-color: #F4F8FB
   display: flex;
   overflow-x: auto;
 }
+
+
+
+

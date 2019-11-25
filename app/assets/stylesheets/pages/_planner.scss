@@ -1,59 +1,85 @@
-.container-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  margin-bottom: 1em;
-  overflow: auto;
+.calendar-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 300px 1fr 100px;
+  height: calc(100vh - 90px);
+  padding-right: 30px;
+  padding-bottom: 30px;
 }
-.time {
-      height: 568px;
-    font-size: 15px;
-    /* margin-top: 25px; */
-    position: sticky;
-    left: 0;
-    top: 0;
-    z-index: 9999;
-    background: white;
-  p {
-    margin-bottom: 1.5px;
-  }
+
+.calendar-grid {
+  grid-row: 1;
+  grid-column: 1;
+    padding: 20px;
 }
+
+.calendar-form {
+  grid-row: 2 / span 2;
+  grid-column: 1;
+  padding: 20px;
+}
+
+.calendar-wrapper {
+  background-color:
+}
+
+.calendar-overview {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.calendar-availability {
+  grid-row: 3 / span 1;
+  grid-column: 2;
+}
+
 .planner-wrapper {
   flex-grow: 1;
-  background-color: #F4F8FB;
   display: flex;
   margin: 0px;
-  overflow: auto;
 }
 
-
-.item {
+.department-info {
   flex: 1 0 400px;
+  .department-title h2 {
+    margin: 0;
+  }
+}
+
+.planner-wrapper .item {
   height: 568px;
-  background-color: #ECB932;
-  margin-right:10px;
+  margin-right: 10px;
+    position: relative;
+
 }
 
-.department-lable {
+.calendar-overview-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-  color: #FF5D49;
-  background-color: white;
-  margin-bottom: 0px;
-  font-weight: bolder;
-}
-
-.department-shifts {
-  margin-left: 60px;
-  display: flex;
-  background-color: #ECB932;
-  padding: 0;
-  margin: 0;
-  height:100%;
-  width: 100%;
+  margin-bottom: 10px;
   position: relative;
+  scroll-snap-align: start;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.time-box {
+  flex: 0 0 70px;
+  padding-top: 20px;
+  background-color: white;
+  grid-row: 1;
+  grid-column: 1;
+  position: sticky;
+  left: 0;
+  z-index: 9;
+  p {
+    margin: 0;
+    font-size: 15px;
+    height: 4%;
+    color: #FF5D49
+  }
 }
 
 .shift {
@@ -64,8 +90,36 @@
   margin-bottom: 0px;
   margin-left: 5px;
   margin-right: 5px;
+  z-index: 2;
+  padding: 5px;
+  box-shadow: 0px 0px 5px rgba(1,1,1,0.2);
   p {
     margin-bottom: 0;
     padding-bottom: 0;
   }
+}
+
+.grid-line-box {
+    border: 1px solid rgba(1,1,1,0.1);
+    height: calc(100% / 6);
+    z-index: 1;
+    margin-top: -1px;
+}
+
+.shift-link {
+      width: 100%;
+    height: 100%;
+    display: block;
+}
+
+h2 {
+  font-size: 20px;
+  color: #FE5D49;
+  font-weight: bolder;
+  text-align: center;
+}
+
+h1 {
+  font-size: 25px;
+  margin: 20px 0;
 }
