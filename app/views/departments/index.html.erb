@@ -19,42 +19,25 @@
     <% end %>
   </div>
 
-
-  <% @days.each do |day| %>
-
-  <div class="container-wrapper">
-    <div class="time d-flex flex-column">
-      <% @hours.each do |time| %>
-      <p><%= time %></p>
-      <% end %>
-    </div>
-    <div class="planner-wrapper">
-
-      <% @departments.each do |department| %>
-
-      <div class="item">
-      <!--  <div class="department-lable">
-        <%#= department.name.upcase%>
-      </div> -->
-      <div class="department-shifts">
-        <% department.shifts.where('start_time BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).all.each_with_index do |shift, index| %>
-        <div class="shift" style="height:<%=((shift.end_time.hour - shift.start_time.hour)*4.16).round%>%; top:<%= (shift.start_time.hour * 4.16).round%>%; left: <%= index * 90 %>px">
-          <p> Start:<%= shift.start_time.hour %>h</p>
-          <p>height:<%= ((shift.end_time.hour - shift.start_time.hour)*4.16).round%>%</p>
-          <p> End: <%= shift.end_time.hour %>h</p>
-          <p> Date: <%= shift.end_time.day %>.<%= shift.end_time.month %>.</p>
-          <%= link_to "edit", edit_shift_path(shift) %>
-          <%= link_to "delete", shift_path(shift),
-          method: :delete,
-          data: { confirm: "Are you sure?" }  %>
-        </div>
+<div class="scroll">
+  <div class="planner-wrapper">
+    <table style="width:1000px">
+      <tr>
+        <th><h2>TIME</h2></th>
+        <% @departments.each do |department| %>
+        <th><h2><%= department.name %></h2></th>
         <% end %>
-      </div>
-    </div>
-    <% end %>
+      </tr>
+    </table>
   </div>
-</div>
-<% end %>
+
+
+     <table>
+       <div class="">
+        <% @hours.each do |time| %>
+        <tr><p><%= time %></p></tr>
+        <% end %>
+        </div>
+    </table>
 
 </div>
-
