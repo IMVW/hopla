@@ -3,10 +3,10 @@
     <%= simple_form_for [@shift] do |f| %>
     <div class="d-flex align-items-center">
       <div class="input-field">
-        <%= f.input :start_time%>
+        <%= f.input :start_time, as: 'string', input_html: {class: 'picker'}%>
       </div>
       <div class="input-field">
-        <%= f.input :end_time, class: "input-field" %>
+        <%= f.input :end_time, as: 'string', input_html: {class: 'picker'} %>
       </div>
       <div class="input-field">
         <%= f.input :department_id, collection: Department.all, selected: 1 %>
