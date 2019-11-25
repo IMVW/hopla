@@ -1,6 +1,6 @@
 <div class="calendar-wrapper">
   <% @days.each do |day| %>
-  <div class="calendar-overview-container">
+  <div class="calendar-overview-container" id="scroll-<%= day.day %>">
     <div class="time-box">
       <% @hours.each do |hour| %>
       <p><%= hour %></p>
@@ -15,23 +15,22 @@
           </h2>
         </div>
         <div class="item">
-          <% (1..6).each do |grid_line| %>
+          <% (1..8).each do |grid_line| %>
             <div class="grid-line-box"></div>
           <% end %>
             <% department.shifts.where('start_time BETWEEN ? AND ?', day.beginning_of_day, day.end_of_day).all.each_with_index do |shift, index| %>
 
-            <% balloon_text = "Start: #{shift.start_time.hour} h \n End:  #{shift.end_time.hour} h \n Date:  #{shift.end_time.day} . #{shift.end_time.month} ." %>
+            <% balloon_text = "Start-Time: #{shift.start_time.hour}:#{shift.start_time.min} \n | End-Time:  #{shift.end_time.hour}:#{shift.end_time.min} \n |  Date:  #{shift.end_time.day}.#{shift.end_time.month}." %>
             <div class="shift" style="height:<%=((shift.end_time.hour - shift.start_time.hour)*4.16).round%>%; top:<%= (shift.start_time.hour * 4.16).round%>%; left: <%= index * 90 %>px;background-color: <%= department.color %>">
               <%= link_to edit_shift_path(shift), class: "shift-link", "data-balloon-pos": "up", "aria-label": balloon_text do %>
-
               <% if shift.user != nil %>
                 <% if shift.user.photo.file != nil %>
                 <div class="photo">
-                  <%=(cl_image_tag shift.user.photo, height: 60, width: 60, crop: :fill, background: '#3DD0DE80', radius: :max, border: { width: 4, color: '#3DD0DE' })%>
+                  <%=(cl_image_tag shift.user.photo, height: 60, width: 60, crop: :fill, background: "#{department.color}" , radius: :max, border: { width: 4, color: "#{department.color}" })%>
                 </div>
               <% else %>
-                <div class="photo" style="border-color: 3px solid #3DD0DE">
-                  <%=(cl_image_tag "empty-avatar.png", width: 60, height: 60, crop: :fill, radius: :max, border:  { width: 4, color: '#3DD0DE' })%>
+                <div class="photo">
+                  <%=(cl_image_tag "empty-avatar.png", width: 60, height: 60, crop: :fill, background: "#{department.color}", radius: :max, border:  { width: 4, color:"#{department.color}"  })%>
                 </div>
               <% end %>
               <% end %>

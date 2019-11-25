@@ -17,9 +17,9 @@
       <% @users.each do |user| %>
       <tr>
         <% if user.photo.file != nil %>
-         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag user.photo, height: 40, width: 40, crop: :fill, background: '#F4F8FB', radius: :max, border:  "4px_solid_grey")%></td>
+         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag user.photo, height: 50, width: 50, crop: :fill, background: '#F4F8FB', radius: :max, border:  "4px_solid_grey")%></td>
         <% else %>
-         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag "empty-avatar.png", width: 40, height: 40, crop: :fill, radius: :max, border:  "4px_solid_grey")%></td>
+         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag "empty-avatar.png", width: 50, height: 50, crop: :fill, radius: :max, border:  "4px_solid_grey")%></td>
         <% end %>
 
         <td id="td-1"><%= user.first_name %></td>
@@ -85,7 +85,7 @@
     <% end %>
   </div>
   <div class="btn-v3 plus">
-    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModal">+</button>
+    <button type="button" class="btn-v1" data-toggle="modal" data-target="#exampleModal">+</button>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -104,9 +104,6 @@
         </div>
       </div>
     </div>
-    <%= link_to new_department_path do %>
-    +
-    <% end %>
   </div>
 </div>
 

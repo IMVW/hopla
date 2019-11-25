@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_075249) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
-    t.string "role"
+    t.boolean "manager", default: true
     t.string "skills", array: true
     t.string "phone_number"
     t.date "birthday"
