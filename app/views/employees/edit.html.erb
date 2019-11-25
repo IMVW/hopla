@@ -1,19 +1,33 @@
-<h1>Edit employee</h1>
+
+<div class="form-page container">
 
 <%= simple_form_for(@user, method: :patch, url: employee_path) do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :email %>
-  <%= f.input :phone_number %>
-  <%= f.input :birthday %>
+      <h1 class="">Create new employee</h1>
 
-  <%= f.input :department_id, collection: @departments, selected: @user.departments %>
+      <div class="form-block-w d-flex">
+        <div class="within-l">
+          <div class="d-flex">
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+          </div>
+          <%= f.input :email %>
+        </div>
+        <div class="within-r">
+          <%= f.input :department_id, collection: @departments, selected: @user.departments %>
+          <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
+        </div>
+      </div>
+      <div class="form-block-g">
+        <div class="d-flex">
+            <%= f.input :phone_number %>
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+        </div>
+            <%= f.input :birthday %>
+</div>
 
-  <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
+    <%= f.submit 'edit employee', class: "btn btn-primary" %>
+  <% end %>
+  </div>
 
-  <%#= f.input :user, as: :radio_buttons, collection:  %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
 
-  <%= f.submit 'edit employee' %>
-<% end %>
