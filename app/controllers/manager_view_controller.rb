@@ -2,8 +2,10 @@ class ManagerViewController < ApplicationController
   before_action :authenticate_user!
 
   def dashboard
-    employees_in_today
     @user = current_user
+    @users = User.all
+    @departments = Department.all
+
   end
 
   def hr_overview
@@ -17,8 +19,7 @@ class ManagerViewController < ApplicationController
 
   # dashboard methods
   def employees_in_today
-    @employees_in_today = 1
   end
 
-  # HR overview methods
+
 end

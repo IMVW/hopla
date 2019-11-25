@@ -1,14 +1,13 @@
 .card-container{
   background:white;
-  border-radius: 5px;
-
+  border-radius: 10px;
 }
-
 .upper-container{
   background:#FF5D49;
-
+  padding-bottom: 15px;
+  padding-top: 5px;
+  border-radius: 9px 9px 0 0;
 }
-
 .image-container{
   width:170px;
   height:170px;
@@ -17,9 +16,30 @@
   display: block;
   border: 5px solid white;
 }
-
 .lower-container{
-  height:280px;
+  height:310px;
+  padding-top: 20px;
   background: white;
+  border-radius: 10px
 }
+.employee-info{
+  margin-top: 20px;
+  padding-left: 30px;
+  p, #skills{
+    font-weight: bolder;
+    color: #FF5D49;
+    padding-top: 20px;
+    letter-spacing: 0.2em;
+    margin-bottom: 0;
+  }
+  p.first-child {
+    padding-top: 10px;
+  }
+  .info {
+    color: black;
+    letter-spacing: 0;
+    font-weight: lighter;
+  }
+}
+
 

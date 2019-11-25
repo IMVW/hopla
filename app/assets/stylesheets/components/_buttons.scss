@@ -17,21 +17,18 @@
   &:hover {
     text-decoration: none;
     color: white;
-
   }
 }
-
+// Skill button - white background
 .btn-v2 {
   border: 1px solid #FF5D49;
   padding: 3px 8px;
-  margin: 25px 2px;
+  margin: 5px 2px;
   border-radius: 16px;
   font-weight: lighter;
   font-size: 14px;
   line-height: 2rem;
 }
-
-
 .btn-v3 {
   background-color: #FF5D49;
   border: 0.5px solid #FF5D49;
@@ -51,6 +48,17 @@
   &:hover {
     text-decoration: none;
     color: white;
-
+  }
+}
+//Close Button for Modal
+.btn-v4 {
+  color: white;
+  background-color:#FF5D49;
+  border: none;
+  margin-right: 5px;
+  border-radius: 5px;
+  border: 1px solid #FF5D49;
+  &:hover {
+    border: 1px solid white;
   }
 }
