@@ -1,8 +1,10 @@
 import "bootstrap";
 import $ from 'jquery';
 import iniDatePicker from 'datetimepicker';
+import Weather from 'weatherapp'
 
 iniDatePicker();
+Weather();
 
 
 
