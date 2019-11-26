@@ -21,24 +21,21 @@
   display: flex;
   flex-direction: column;
 }
-.nav-links{
-  margin: 0;
-  width: 100%;
-  margin-left: 20px;
-  background-color: #FF5D49;
-  a {
+
+  a.nav-link {
+      background-color: #FF5D49;
     padding-top:20px;
     padding-bottom:20px;
     margin-left: 40px;
     text-decoration: none;
     color: white;
-  }
-  a:hover {
+    // transition: all 200ms ease;
+  &:hover {
     border-radius: 50px 0 0 50px;
     background-color: white;
     color: #5358E2;
   }
-}
+  }
 .nav-link.active {
   border-radius: 50px 0 0 50px;
   background-color: white;
@@ -48,20 +45,62 @@
     color: black;
   }
 }
+
+.nav-link {
+    background-color: #FF5D49;
+    transition-delay: 100ms ease;
+}
+
+.orange-box {
+     background-color: #FF5D49;
+     width: 100%;
+
+}
+
+.space {
+  border-radius: 0;
+      background-color: #fe5d49;
+  transition-delay: 100ms;
+}
+
+.space.top-border, .spaceholder.top-border {
+    background-color: #fe5d49;
+    border-bottom-right-radius: 30px;
+      transition: border-radius 200ms ease;
+
+}
+
+.space.bottom-border, .spaceholder.bottom-border {
+    background-color: #fe5d49;
+    border-top-right-radius: 30px;
+      transition: border-radius 200ms ease;
+
+}
+
+.space.top-border.bottom-border, .spaceholder.top-border.bottom-border {
+    background-color: #fe5d49;
+    border-bottom-right-radius: 30px;
+        border-top-right-radius: 30px;
+          transition: border-radius 200ms ease;
+
+}
+
+
 .spaceholder {
   display: flex;
   width: 100%;
   flex-grow: 1;
   background: #FF5D49;
+      transition-delay: 100ms;
+
+
 }
 .spaceholder.top {
-  border-radius: 33px 0 0 0;
   justify-content: center;
   padding-top: 30px;
 
 }
 .spaceholder.end {
-  border-radius: 0 0 0 33px;
   justify-content: center;
   align-items: flex-end;
   a {
@@ -76,6 +115,9 @@
   height: 40px;
 }
 
+.logout {
+  padding-bottom: 30px;
+}
 
 
  // content:url('blackCarrot.png')
