@@ -35,8 +35,8 @@
         <% else %>
           <td id="td-4"></td>
         <% end %>
-        <td id="td-5"><%= link_to employee_path(user) do %>
-          <i class="fas fa-search"></i>
+        <td id="td-5"><%= link_to edit_employee_path(user) do %>
+           <h2><i class="fas fa-pencil-alt"></i></h2>
           <% end %>
         </td>
       </tr>
@@ -55,22 +55,23 @@
                   <% end %>
                 </div>
                 <div class="lower-container text-center">
-                  <h3><%= user.first_name %> <%= user.last_name %></h3>
+                  <h3><%= user.first_name %> <%= user.last_name %> <%= link_to edit_employee_path(user) do %><i id="btn-1"class="fas fa-pencil-alt"></i><% end %></h3>
                   <div class="employee-info text-left">
                     <p>Phone: <span class="info"><%= user.phone_number %></span></p>
                     <p>Email: <span class="info"><%= user.email %> </span></p>
                     <p>Birthday: <span class="info"><%= user.birthday %></span></p>
                     <p>Skills: </p>
-                      <%if user.skills != nil %>
-                        <% user.skills.each do|skill| %>
-                        <span class="btn-v2"><%= skill %></span>
-                      <% end %>
+                    <%if user.skills != nil %>
+                    <% user.skills.each do|skill| %>
+                    <span class="btn-v2"><%= skill %></span>
+                    <% end %>
+                   </div>
+                    <% end %>
 
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
+                 </div>
+               </div>
+             </div>
+           </div>
         </div>
       </div>
     <% end %>
@@ -86,7 +87,7 @@
     <% end %>
   </div>
   <div class="btn-v3 plus">
-    <button type="button" class="btn-v1" data-toggle="modal" data-target="#exampleModal">+</button>
+    <div class="btn-1" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i></div>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -105,6 +106,10 @@
         </div>
       </div>
     </div>
+
+   <!--  <%= link_to new_department_path do %>
+    +
+ -->    <% end %>
   </div>
 </div>
 
