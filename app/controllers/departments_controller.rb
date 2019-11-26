@@ -4,9 +4,10 @@ class DepartmentsController < ApplicationController
 
   def index
     @shift = Shift.new
-    @departments = Department.all
+    @departments = Department.all.order(:id)
     @hours = hours_in_day
     @days = days_in_year
+    @days_array = compile_date_array
   end
 
   def new
@@ -40,6 +41,16 @@ class DepartmentsController < ApplicationController
 
   private
 
+  def compile_date_array
+    number_days_before = Date.today.beginning_of_month.wday
+    days_array =((Date.today.beginning_of_month)...(Date.today.end_of_month)).to_a
+
+    number_days_before.times do
+      days_array.unshift("")
+    end
+    return days_array
+  end
+
   def department_params
     params.require(:department).permit(:name, :color)
   end
@@ -49,7 +60,8 @@ class DepartmentsController < ApplicationController
   end
 
   def hours_in_day
-    ['12:00am'] + (1..11).map {|h| "#{h}:00am"} + ['12:00pm'] + (1..11).map {|h| "#{h}:00pm"}
+    hours = ['12:00 am'] + (1..11).map {|h| "#{h}:00 am"} + ['12:00 pm'] + (1..11).map {|h| "#{h}:00 pm"}
+    hours_intervall = hours.select.each_with_index{|k,i| k if i%3 == 0}
   end
 
   def days_in_year

@@ -1,4 +1,5 @@
 <div class="content-container">
+  <h1>HR OVERVIEW</h1>
   <div class="button d-flex justify-content-end">
     <%= link_to "Add employee", new_employee_path, class: "btn-v1"%>
   </div>
@@ -17,9 +18,9 @@
       <% @users.each do |user| %>
       <tr>
         <% if user.photo.file != nil %>
-         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag user.photo, height: 40, width: 40, crop: :fill, background: '#F4F8FB', radius: :max, border:  "4px_solid_grey")%></td>
+         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag user.photo, height: 50, width: 50, crop: :fill, background: '#F4F8FB', radius: :max, border:  "4px_solid_grey")%></td>
         <% else %>
-         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag "empty-avatar.png", width: 40, height: 40, crop: :fill, radius: :max, border:  "4px_solid_grey")%></td>
+         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag "empty-avatar.png", width: 50, height: 50, crop: :fill, radius: :max, border:  "4px_solid_grey")%></td>
         <% end %>
 
         <td id="td-1"><%= user.first_name %></td>
@@ -105,6 +106,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
 

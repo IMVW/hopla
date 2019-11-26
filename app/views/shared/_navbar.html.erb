@@ -10,30 +10,28 @@
     <%= image_tag "https://res.cloudinary.com/siggimsiggi/image/upload/v1574240304/hopla-icon-large_w86g2n.png" %>
     <% end %>
   </div>
-  <div class="nav-links">
-    <div>
+    <div class="orange-box">
       <%= active_link_to root_path, active: :exact, class: "nav-link" do %>
         <i class="fas fa-th-large"></i> Dashboard
       <% end %>
     </div>
     <div class="space">
     </div>
-    <div>
+    <div class="orange-box">
       <%= active_link_to planner_path, class: "nav-link" do %>
       <i class="fas fa-calendar-day"></i> Planner
        <% end %>
     </div>
     <div class="space">
     </div>
-    <div>
+    <div class="orange-box">
       <%= active_link_to employees_path, class: "nav-link" do %>
       <i class="fas fa-user-friends"></i> Employees
       <% end %>
     </div>
-   </div>
 
   <div class="spaceholder end">
-    <%= link_to destroy_user_session_path,method: :delete, class: "nav-link" do %>
+    <%= link_to destroy_user_session_path,method: :delete, class: "logout" do %>
     Logout <i class="fas fa-sign-out-alt"></i>
   <% end %>
   </div>

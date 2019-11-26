@@ -1,57 +1,26 @@
-.calendar-container {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-template-rows: 300px 1fr 100px;
-  height: calc(100vh - 90px);
-  padding-right: 30px;
-  padding-bottom: 30px;
-}
-
-.calendar-grid {
-  grid-row: 1;
-  grid-column: 1;
-    padding: 20px;
-}
-
-.calendar-form {
-  grid-row: 2 / span 2;
-  grid-column: 1;
-  padding: 20px;
-}
-
-
-.calendar-overview {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  overflow: scroll;
-  scroll-snap-type: y mandatory;
-}
-
-.calendar-availability {
-  grid-row: 3 / span 1;
-  grid-column: 2;
-}
-
-.planner-wrapper {
-  flex-grow: 1;
-  display: flex;
-  margin: 0px;
+.calendar-header {
+  font-weight: bold;
+  letter-spacing: 0.2em;
 }
 
 .department-info {
   flex: 1 0 400px;
-  .department-title h2 {
-    margin: 0;
+  margin: 0 10px;
+  .department-title {
+    padding: 10px 0;
+    background-color: white;
+    margin: 10px 0;
+    h2 {
+      font-size: 16px;
+      margin: 0;
+    }
   }
 }
-
 .planner-wrapper .item {
   height: 568px;
-  margin-right: 10px;
-    position: relative;
+  position: relative;
 
 }
-
 .calendar-overview-container {
   display: flex;
   margin-bottom: 10px;
@@ -61,52 +30,55 @@
     display: none;
   }
 }
-
 .time-box {
   flex: 0 0 70px;
-  padding-top: 20px;
-  background-color: white;
+  padding-left: 8px;
+  padding-top: 51px;
+  background-color: #F4F8FB;
   grid-row: 1;
   grid-column: 1;
   position: sticky;
   left: 0;
-  z-index: 9;
+  z-index: 2;
   p {
     margin: 0;
     font-size: 15px;
-    height: 4%;
+    font-weight: lighter;
+    height: 12%;
     color: #FF5D49
   }
 }
-
 .shift {
-  width: 80px;
+  width: 70px;
   font-size: 13px;
   position: absolute;
   background-color: white;
   margin-bottom: 0px;
   margin-left: 5px;
   margin-right: 5px;
-  z-index: 2;
+  z-index: 1;
   padding: 5px;
   box-shadow: 0px 0px 5px rgba(1,1,1,0.2);
   p {
     margin-bottom: 0;
     padding-bottom: 0;
   }
+  &:hover {
+    z-index: 11;
+  }
 }
 
 .grid-line-box {
-    border: 1px solid rgba(1,1,1,0.1);
-    height: calc(100% / 6);
-    z-index: 1;
-    margin-top: -1px;
+  border: 0.5px solid rgba(1,1,1,0.05);
+  height: calc(100% / 8);
+  z-index: 1;
+  margin-top: -1px;
 }
 
 .shift-link {
-      width: 100%;
-    height: 100%;
-    display: block;
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 h2 {
@@ -117,6 +89,7 @@ h2 {
 }
 
 h1 {
-  font-size: 25px;
-  margin: 20px 0;
+  font-size: 20px;
+  margin: 30px 0;
 }
+
