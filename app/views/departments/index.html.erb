@@ -1,43 +1,25 @@
-<div class="text-center">
-  <h1 class="calendar-header">
-    SCHEDULING
-  </h1>
-</div>
-
-<div class="calendar-container">
-  <div class="calendar-grid">
-    <div id="calendar">
-        <% %w(Sun Mon Tue Wed Thu Fri Sat).each do |legend| %>
-        <div class="legend-day">
-          <%= legend %>
-        </div>
-        <% end %>
-        <% @days_array.each do |day| %>
-            <% if day == "" %>
-              <div class="day"></div>
-            <% else %>
-
-                  <a href="#scroll-<%=day.day%>" class="smooth-date">
-                    <div class="day <%= (day == Date.today) ? "active" : "" %>">
-                      <%= day.strftime("%e") %>
-                    </div>
-                  </a>
-          <% end %>
-        <% end %>
+    <div class="text-center">
+  <!--     <h1 class="calendar-header">
+        SCHEDULING
+      </h1> -->
     </div>
-  </div>
-  <div class="shift-form">
-    <%= simple_form_for [@shift] do |f| %>
-    <%= f.input :start_time, as: 'string', input_html: {class: 'picker'}%>
-    <%= f.input :end_time, as: 'string', input_html: {class: 'picker'} %>
-    <%= f.input :department_id, collection: Department.all, selected: 1 %>
-    <%= f.submit "ADD SHIFT", class: "btn-v1" %>
-    <% end %>
-  </div>
+    <div class="shift-form top-wrapper my-1">
+      <%= simple_form_for [@shift] do |f| %>
+      <%= f.input :start_time, as: 'string', input_html: {class: 'picker'}, placeholder: 'Start-Time', label: false%>
+      <%= f.input :end_time, as: 'string', input_html: {class: 'picker'}, placeholder: 'End-Time', label: false%>
+      <%= f.input :department_id, collection: Department.all, selected: 1, label: false%>
+      <%= f.submit "ADD SHIFT", class: "btn-v1" %>
+      <% end %>
+    </div>
+
+
   <div class="calendar-overview">
     <%= render partial: "calendar_overview" %>
   </div>
-  <div class="calendar-availability">
+<div class="row">
+  <div class="col-10">
+    <div class="bottom-box">
 
+    </div>
   </div>
 </div>

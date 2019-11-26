@@ -1,8 +1,31 @@
+.col-sm-10.col-md-10.pl-0 {
+    border-right: 15px solid white;
+  }
+
+.top-wrapper {
+  position: fixed;
+  z-index: 6;
+  top: 8px;
+  width: 82%;
+  left: 225px;
+  border-top-right-radius: 17px;
+  overflow: hidden;
+}
+
 .calendar-header {
   font-weight: bold;
   letter-spacing: 0.2em;
 }
 
+.bottom-box {
+  background-color: white;
+  position: fixed;
+  top: calc(100vh - 40px);
+  border-bottom-right-radius: 29px;
+  width: 82%;
+  height: 27px;
+  z-index: 2;
+}
 .department-info {
   flex: 1 0 400px;
   margin: 0 10px;
@@ -10,6 +33,9 @@
     padding: 10px 0;
     background-color: white;
     margin: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 2;
     h2 {
       font-size: 16px;
       margin: 0;
@@ -25,15 +51,31 @@
   display: flex;
   margin-bottom: 10px;
   position: relative;
+
   scroll-snap-align: start;
   &::-webkit-scrollbar {
     display: none;
   }
 }
+.overflow-scroll{
+  overflow: scroll;
+}
+
+.date-top{
+  background: white;
+  padding: 0.6em 0.4em;
+  font-size: 14px;
+  font-weight: bolder;
+  color: #FE5D49;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin-bottom: 1px;
+}
 .time-box {
   flex: 0 0 70px;
   padding-left: 8px;
-  padding-top: 51px;
+  padding-top: 10px;
   background-color: #F4F8FB;
   grid-row: 1;
   grid-column: 1;
@@ -44,8 +86,8 @@
     margin: 0;
     font-size: 15px;
     font-weight: lighter;
-    height: 12%;
-    color: #FF5D49
+    height: 70px;
+    color: #FF5D49;
   }
 }
 .shift {
@@ -65,6 +107,13 @@
   }
   &:hover {
     z-index: 11;
+    a {
+      text-decoration: none;
+    }
+    p {
+      border: 1px solid white;
+      color: white;
+    }
   }
 }
 

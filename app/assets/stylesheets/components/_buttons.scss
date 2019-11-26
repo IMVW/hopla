@@ -29,6 +29,21 @@
   font-size: 14px;
   line-height: 2rem;
 }
+.btn-v2-s{
+  border: 1px solid transparent;
+  color: transparent;
+  padding: 0px 6px;
+  margin: 5px 2px;
+  border-radius: 16px;
+  font-weight: lighter;
+  font-size: 10px;
+  line-height: 1rem;
+  a {
+  text-decoration: none;
+
+  }
+
+}
 .btn-v3 {
   background-color: #FF5D49;
   border: 0.5px solid #FF5D49;

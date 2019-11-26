@@ -1,7 +1,9 @@
-<div class="calendar-wrapper" data-spy="scroll" data-target="#scroll-spy-days" data-offset="0">
+<div class="calendar-wrapper  overflow-scroll">
   <% @days.each do |day| %>
-  <div class="calendar-overview-container" id="scroll-<%= day.day %>">
+    <div class="calendar-overview-container" id="scroll-<%= day.day %>">
+
     <div class="time-box">
+      <div class="date-top"><%= day.strftime("%b %d") %></div>
       <% @hours.each do |hour| %>
       <p><%= hour %></p>
       <% end %>
@@ -33,6 +35,13 @@
                   <%=(cl_image_tag "empty-avatar.png", width: 60, height: 60, crop: :fill, background: "#{department.color}", radius: :max, border:  { width: 4, color:"#{department.color}"  })%>
                 </div>
               <% end %>
+                <% if shift.skills != nil %>
+                <% shift.skills.each do |skill| %>
+                <% if skill != "" %>
+                <p class="btn-v2-s"><%= skill%></p>
+                <% end %>
+                <% end %>
+                <% end %>
               <% end %>
 
             <% end %>
@@ -42,7 +51,8 @@
       </div>
       <% end %>
     </div>
-  </div>
+    </div>
+
   <% end %>
 </div>
 

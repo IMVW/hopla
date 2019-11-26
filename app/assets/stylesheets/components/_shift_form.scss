@@ -1,8 +1,45 @@
 .shift-form {
-  border: 1px solid #FF5D49;
-  border-radius: 10px;
-  margin-right: 23px;
-  margin-left: 23px;
+    border-bottom: 1px solid #dadada;
+    /* border-radius: 10px; */
+    /* margin-right: 0; */
+    /* margin-left: 23px; */
+    padding: 1.5em 1em 0 1em;
+    width: 98%;
+    background: white;
+    /* Z-INDEX: 40; */
+}
+
+#new_shift {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: -5px;
+  input {
+  padding: 6px 20px;
+  }
+}
+
+.btn-submit {
   padding: 10px 10px;
+}
+
+
+.simple_form label {
+  float: left;
+  width: 100px;
+  text-align: right;
+  margin: 2px 10px;
+}
+
+.simple_form div.input {
   margin-bottom: 10px;
+}
+
+
+.form-group.string.required.shift_start_time,.form-group.string.required.shift_end_time, .form-group.string.required.shift_department {
+  margin-right: 10px;
+}
+
+input.btn-v1 {
+    margin-bottom: 26px;
 }
