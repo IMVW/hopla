@@ -1,9 +1,10 @@
 #calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
   height: 100%;
   max-height: 150px;
+  // overflow: hidden;
 }
 
 .legend-day {
@@ -35,3 +36,4 @@
   color: white;
   background-color: #FF5D49;
 }
+
