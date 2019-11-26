@@ -1,38 +1,27 @@
+.form-page h2{
+  padding: 20px;
+  text-align: left;
+  margin-top: 20px;
+  color: white;
+}
+
+.block-header {
+  background: #5358e2;
+  justify-content: space-between;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  max-height: 60px;
+}
 
 .form-block {
   // height: 200px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // display: flex;
-  padding: 20px;
-  padding-top: 40px;
-  width: 95%;
-  // border-radius: 10px;
-  margin: 20px 10px;
-  // flex-grow: 2;
-  justify-content: space-between;
-
-
-}
-
-.form-title{
-  color: orange;
-  text-align: left;
-
-
-}
-
-.form-block-ds {
-  color: white;
-  // height: 200px;
-  background: #5358e2;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  // display: flex;
-  padding: 20px;
-  width: 95%;
-  width: 300px;
-  margin: 0px 30px;
-
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    padding: 0px;
+    padding-top: 0px;
+    /* width: 95%; */
+    margin: 20px;
+    border-radius: 10px;
 }
 
 .labeltext {
@@ -41,17 +30,10 @@
   color: gray;
 }
 
-.location {
-  align-content: right;
-
-}
-
-.purple {
-  padding-right: 40px;
-  padding-left: 30px;
-
-}
-
 .inside-block {
   margin: 20px;
+}
+
+.makeitblue {
+  background-color: #f4f8fb;
 }

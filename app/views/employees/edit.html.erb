@@ -3,38 +3,40 @@
 
 <%= simple_form_for(@user, method: :patch, url: employee_path) do |f| %>
 
-
-<div class="form-block">
-  <div class="d-flex">
-    <div class="purple">
-
-    <img src=<%=@user.photo%> width="100" height="100" >
-      <span class="labeltext" ><%= f.input :photo %></span>
-      <%= f.input :photo_cache, as: :hidden %>
-
+  <div class="form-block">
+    <div class="block-header">
+      <h2>Edit the profile of <%= @user.first_name %> </h2>
     </div>
-    <div class="inside-block">
-      <span class="labeltext" ><%= f.input :first_name, wrapper_html: {class: 'span6', style:'width: 400px'}, required: true, autofocus: true %></span>
-      <span class="labeltext" ><%= f.input :last_name, wrapper_html: {class: 'span6', style:'width: 400px'}, required: true, autofocus: true %></span>
-      <span class="labeltext" ><%= f.input :email, wrapper_html: {class: 'span6', style:'width: 400px'}, required: true, autofocus: true%></span>
-      <span class="labeltext" ><%= f.input :phone_number %></span>
-      <span class="labeltext" ><%= f.input :birthday %></span>
-    </div>
+      <div class="d-flex">
+      <div class="inside-block ">
+      <img src=<%=@user.photo%> width="100" height="100" >
+        <span class="labeltext" ><%= f.input :photo %></span>
+        <%= f.input :photo_cache, as: :hidden %>
+      </div>
+      <div class="makeitblue">
+        <div class="inside-block">
+          <h6>Personal details</h6>
+          <span class="labeltext" ><%= f.input :first_name, wrapper_html: {class: 'span6', style:'width: 400px'}, required: true, autofocus: true %></span>
+          <span class="labeltext" ><%= f.input :last_name, wrapper_html: {class: 'span6', style:'width: 400px'}, required: true, autofocus: true %></span>
+          <span class="labeltext" ><%= f.input :email, wrapper_html: {class: 'span6', style:'width: 400px'}, required: true, autofocus: true%></span>
+          <span class="labeltext" ><%= f.input :phone_number %></span>
+          <span class="labeltext" ><%= f.input :birthday %></span>
+          <%= f.submit 'save changes', class: "btn btn-v1" %>
+        </div>
+      </div>
 
-    <div>
-     <div class="inside-block">
-      <span class="labeltext" ><%= f.input :department_id, collection: @departments, selected: @user.departments, wrapper_html: {class: 'span6', style:'width: 300px'}, required: true, autofocus: true %></span>
-      <span class="labeltext" ><%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline,  label: false %></span>
+      <div>
+        <div class="inside-block">
+          <h6>Department & skills</h6>
+          <span class="labeltext" ><%= f.input :department_id, collection: @departments, selected: @user.departments, wrapper_html: {class: 'span6', style:'width: 300px'}, required: true, autofocus: true %></span>
+          <span class="labeltext" ><%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline,  label: false %></span>
+        </div>
+      </div>
+
     </div>
   </div>
-
-</div>
-<div style="display:flex; justify-content:flex-end; width:100%; padding-right:30px;">
-
-<%= f.submit 'edit employee', class: "btn btn-v1" %>
 </div>
 <% end %>
-</div>
 
 
 
