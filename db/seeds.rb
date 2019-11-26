@@ -1,5 +1,8 @@
-skills = ["cocktails", "dessert", "barista", "chef", "sous-chef", "oyster", "host", "balencing", "keys", "stock-taking", "reservation", "fryer",
-"grill", "suppliers", "opening", "closing"]
+Shift.destroy_all
+Department.destroy_all
+User.destroy_all
+
+skills = ["cocktails", "dessert", "barista", "chef", "sous-chef", "oyster", "host", "balencing", "keys", "stock-taking", "reservation", "fryer", "grill", "suppliers", "opening", "closing"]
 pw = "123456"
 pwc = "123456"
 fn = ["Iris", "Rick", "Jean", "Elena", "Phillip", "Tom", "Maggie", "Patrick", "Luca", "Christina"]
@@ -14,7 +17,7 @@ puts "Created 1 Manager..."
 
 puts "Creating 9 Employees..."
 a_user = []
-a_user << User.create!(email:"#{fn[1].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[1], last_name: ln[1], phone_number:"", skills: skills.sample(3), birthday:"").
+a_user << User.create!(email:"#{fn[1].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[1], last_name: ln[1], phone_number:"", skills: skills.sample(3), birthday:"")
 a_user << User.create!(email:"#{fn[2].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[2], last_name: ln[2], phone_number:"", skills: skills.sample(2), birthday:"10.08.1964")
 a_user << User.create!(email:"#{fn[3].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[3], last_name: ln[3], phone_number:"+31-655-5982-35", skills: skills.sample(4), birthday:"11.03.1980")
 a_user << User.create!(email:"#{fn[4].downcase}@gmail.com", password: pw, password_confirmation: pwc, first_name: fn[4], last_name: ln[4], phone_number:"+31-455-5989-71", skills: skills.sample(2), birthday:"")
