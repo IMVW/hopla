@@ -1,16 +1,22 @@
-<h1>Shifts#edit</h1>
-<p>Find me in app/views/shifts/edit.html.erb</p>
-
-
+<div class="form-page container">
 <%= simple_form_for @shift, html: {method: :patch}  do |f| %>
-<h2>Update shift</h2>
-  <%= f.input :start_time %>
-  <%= f.input :end_time %>
-  <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
-  <%= f.input :user_id,  collection: @users %>
-  <%#= f.input :user, as: :radio_buttons, collection:  %>
+  <div class="form-block">
+    <div class="block-header">
+      <h2>Update shift</h2>
+    </div>
+    <div class="inside-block ">
+      <div class="d-flex">
+      <%= f.input :start_time, as: 'string', input_html: {class: 'picker', style:'width: 400px'}%>
+      <%= f.input :end_time, as: 'string', input_html: {class: 'picker', style:'width: 400px'} %>
+      </div>
+      <div class="d-flex">
+      <%= f.input :department_id, collection: Department.all, selected: 1 %>
+      <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
+      <%= f.input :user_id,  collection: @users %>
+      </div>
 
-   <%#= f.input :skill, as: :check_boxes, collection: User::SKILL, wrapper: :vertical_collection_inline %>
+
+
   <%= f.submit "update shift", class: "btn btn-primary" %>
 <% end %>
 
