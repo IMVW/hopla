@@ -16,8 +16,10 @@ class EmployeesController < ApplicationController
   end
 
   def new
+    show_skills
     @user = User.new
     @departments = Department.all
+
     # show form to Create a new user
   end
 
