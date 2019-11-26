@@ -1,4 +1,4 @@
-<div class="calendar-wrapper">
+<div class="calendar-wrapper" data-spy="scroll" data-target="#scroll-spy-days" data-offset="0">
   <% @days.each do |day| %>
   <div class="calendar-overview-container" id="scroll-<%= day.day %>">
     <div class="time-box">

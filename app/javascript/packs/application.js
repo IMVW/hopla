@@ -51,7 +51,7 @@ iniDatePicker();
 
   document.querySelectorAll('.smooth-date').forEach((item) => {
     item.addEventListener('click', (event) => {
-      event.preventDefault();
-      document.querySelector(event.currentTarget.dataset.target).scrollIntoView({behavior: 'smooth', position: 'start'})
+      //event.preventDefault();
+      //document.querySelector(event.currentTarget.dataset.target).scrollIntoView({behavior: 'smooth', position: 'start'})
     })
   })

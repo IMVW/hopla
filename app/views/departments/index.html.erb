@@ -7,22 +7,23 @@
 <div class="calendar-container">
   <div class="calendar-grid">
     <div id="calendar">
-      <% %w(Sun Mon Tue Wed Thu Fri Sat).each do |legend| %>
-      <div class="legend-day">
-        <%= legend %>
-      </div>
-      <% end %>
-      <% @days_array.each do |day| %>
-          <% if day == "" %>
-            <div class="day"></div>
-          <% else %>
-            <%= link_to "", class: "smooth-date", "data-target": "#scroll-#{day.day}" do  %>
-              <div class="day <%= (day == Date.today) ? "active" : "" %>">
-                <%= day.strftime("%e") %>
-              </div>
+        <% %w(Sun Mon Tue Wed Thu Fri Sat).each do |legend| %>
+        <div class="legend-day">
+          <%= legend %>
+        </div>
+        <% end %>
+        <% @days_array.each do |day| %>
+            <% if day == "" %>
+              <div class="day"></div>
+            <% else %>
+
+                  <a href="#scroll-<%=day.day%>" class="smooth-date">
+                    <div class="day <%= (day == Date.today) ? "active" : "" %>">
+                      <%= day.strftime("%e") %>
+                    </div>
+                  </a>
           <% end %>
         <% end %>
-      <% end %>
     </div>
   </div>
   <div class="shift-form">
