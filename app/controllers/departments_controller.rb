@@ -7,7 +7,7 @@ class DepartmentsController < ApplicationController
     @departments = Department.all.order(:id)
     @hours = hours_in_day
     @days = days_in_year
-    @days_array= compile_date_month_array
+    @days_array = compile_date_month_array
   end
 
   def new

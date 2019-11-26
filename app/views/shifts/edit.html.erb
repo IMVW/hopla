@@ -12,7 +12,7 @@
       <div class="d-flex">
       <%= f.input :department_id, collection: Department.all, selected: 1 %>
       <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
-      <%= f.input :user_id,  collection: @users %>
+      <%= f.input :user_id,  collection: @shifts.department.users%>
       </div>
 
 
