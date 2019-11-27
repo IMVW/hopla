@@ -39,6 +39,7 @@ class ShiftsController < ApplicationController
   def edit
     show_skills
     @users = user_name
+    @shifts = Shift.find(params[:id])
   end
 
   def update

@@ -7,7 +7,6 @@ class DepartmentsController < ApplicationController
     @departments = Department.all.order(:id)
     @hours = hours_in_day
     @days = days_in_year
-
   end
 
   def new
@@ -36,7 +35,7 @@ class DepartmentsController < ApplicationController
 
   def destroy
     @department.destroy
-    redirect_to departments_path, notice: "Department deleted"
+    redirect_to employees_path, notice: "Department deleted"
   end
 
   private

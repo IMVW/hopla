@@ -1,3 +1,29 @@
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: 230px 520px;
+    /* width: 100%; */
+    margin: 22px;
+}
+
+.weather{
+  background-color: #F4F8FB;
+}
+
+.notification{
+  background-color: #F4F8FB;
+}
+
+.notes {
+  background-color: white;
+  margin: 20px 20px;
+  padding: 10px 10px;
+  a {
+    color: black;
+  }
+}
+
+
 .upper-content {
   display:flex;
   .left-content {
@@ -42,21 +68,22 @@ width:80%;
   font-weight: bolder;
 }
 .daily-department-shifts{
-  margin: 10px 20px;
+  margin: 10px 10px;
 }
 .employee-detail{
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   margin: 10px 10px;
-  width: 80px;
-}
-
-.photo {
-  margin-bottom: 10px;
+  width: 100px;
 }
 
 .time-shift{
   font-weight: lighter;
   font-size: 13px;
+}
+
+.employee {
+  margin: 10px 10px;
 }

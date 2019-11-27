@@ -1,6 +1,20 @@
-<div class="upper-content">
-  <div class="left-content">
- <!-- WEATHER APP -->
+<div class="dashboard-container">
+  <div class="user-avatar">
+    <div class="logged-in-user">
+      <div class="dropdown">
+         <%= cl_image_tag @user.photo, class: "avatar-image", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+           <%= link_to "Action", "#", class: "dropdown-item" %>
+           <%= link_to "Another action", "#", class: "dropdown-item" %>
+           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+         </div>
+      </div>
+      <p><%= @greet %> <%=@user.first_name %>!</p>
+    </div>
+  </div>
+
+  <div class="weather">
+     <!-- WEATHER APP -->
       <div class="widget">
         <div class="weatherIcon"><i class="wi wi-day-cloudy"></i></div>
         <div class="weatherInfo">
@@ -10,53 +24,60 @@
             <div id="condition" class="weatherCondition">CLOUDY</div>
           </div>
         </div>
-        <div id="date" class="date">1Jan</div>
+        <div id="date" class="date">Jan 1</div>
       </div>
-       <!-- WEATHER APP -->
   </div>
-  <div class="logged-in-user">
-    <div class="dropdown">
-       <%= cl_image_tag @user.photo, class: "avatar-image", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-       <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-         <%= link_to "Action", "#", class: "dropdown-item" %>
-         <%= link_to "Another action", "#", class: "dropdown-item" %>
-         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-       </div>
-    </div>
-    <p>Hi <%=@user.first_name %>!</p>
-  </div>
-</div>
 
-<div class="employee-status">
-  <% @departments.each do |department| %>
-    <div class="daily-department-shifts">
-      <div class="department-lable">
-        <%= department.name %>
-      </div>
-    <!-- <div class="d-flex"> -->
-      <div class="employee-detail d-flex" style="background-color: #3DD0DE80">
-        <% department.shifts.each do |shift| %>
-          <% if shift.start_time.day == Date.today.day && shift.start_time.month == Date.today.month %>
-            <% if shift.user != nil %>
-              <% if shift.user.photo.file != nil %>
-              <div class="photo">
-                <%=(cl_image_tag shift.user.photo, height: 60, width: 60, crop: :fill, background: '#3DD0DE80', radius: :max, border: { width: 4, color: '#3DD0DE' })%>
-              </div>
-            <% else %>
-              <div class="photo" style="border-color: 3px solid #3DD0DE">
-                <%=(cl_image_tag "empty-avatar.png", width: 60, height: 60, crop: :fill, radius: :max, border:  { width: 4, color: '#3DD0DE' })%>
-              </div>
+  <div class="today-in d-flex justify-content-center">
+    <div class="employee-status">
+      <% @departments.each do |department| %>
+        <div class="daily-department-shifts">
+          <div class="department-lable">
+            <%= department.name %>
+          </div>
+          <div class="employee-detail d-flex">
+            <% department.shifts.each do |shift| %>
+              <% if shift.start_time.day == Date.today.day && shift.start_time.month == Date.today.month %>
+                <div class="employee " style="background-color:<%=shift.department.color %>">
+                  <% if shift.user != nil %>
+                    <% if shift.user.photo.file != nil %>
+                    <div class="photo">
+                      <%=(cl_image_tag shift.user.photo, height: 70, width: 70, crop: :fill, background: "#{department.color}", radius: :max, border: { width: 4, color: "#{department.color}" })%>
+                    </div>
+                  <% else %>
+                    <div class="photo">
+                      <%=(cl_image_tag "empty-avatar.png",height: 70, width: 70, crop: :fill, background: "#{department.color}", radius: :max, border: { width: 4, color: "#{department.color}" })%>
+                    </div>
+                  <% end %>
+                  <div class="name">
+                    <%= shift.user.first_name%>
+                  </div>
+                    <div class="time-shift">
+                      <%= shift.start_time.strftime('%H:%M')%> - <%= shift.end_time.strftime('%H:%M')%>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
             <% end %>
-            <div class="name">
-              <%= shift.user.first_name%>
-            </div>
-              <div class="time-shift">
-                <%= shift.start_time.strftime('%H:%M')%> - <%= shift.end_time.strftime('%H:%M')%>
-              </div>
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+
+  <div class="notification">
+    <div class="notes">
+      <h2>NOTIFICATIONS</h2>
+      <p><%=@unassigned_shifts.count%> unassigned Shifts:</p>
+      <% @unassigned_shifts.each do |shift| %>
+      <ul>
+        <li>
+          <%= link_to "#{shift.start_time.strftime('%b %d.')} #{shift.start_time.strftime('%H:%M')} - #{shift.end_time.strftime('%H:%M')} (#{shift.department.name})", edit_shift_path(shift) %>
+        </li>
+      </ul>
+    <% end %>
+    </div>
+  </div>
+
+
 </div>

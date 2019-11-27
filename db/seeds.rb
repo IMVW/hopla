@@ -31,10 +31,10 @@ puts "Created 9 Employees..."
 
 puts "Creating 4 Departments..."
 a_dep = []
-a_dep << Department.create!(name:"Floor")
-a_dep << kitchen = Department.create!(name:"Kitchen")
-a_dep << dishwashing = Department.create!(name:"Dishwashing")
-a_dep << management = Department.create!(name:"Management")
+a_dep << Department.create!(name:"Floor", color:"#ecb932")
+a_dep << kitchen = Department.create!(name:"Kitchen", color:"#3dd0de")
+a_dep << dishwashing = Department.create!(name:"Dishwashing", color:"#5358E2")
+a_dep << management = Department.create!(name:"Management", color:"#ff5d49")
 puts "Created 4 Departments..."
 
 
