@@ -4,7 +4,8 @@ class ManagerViewController < ApplicationController
   def dashboard
     @user = current_user
     @users = User.all
-    @departments = Department.all
+    @departments = Department.all.order(:id)
+    @unassigned_shifts = unassigned_shifts
 
   end
 
@@ -18,7 +19,17 @@ class ManagerViewController < ApplicationController
   private
 
   # dashboard methods
-  def employees_in_today
+  def unassigned_shifts
+    @shifts = Shift.all
+    @unassigned_shifts = []
+
+    @shifts.each do |shift|
+      if shift.user == nil
+       @unassigned_shifts << shift
+      end
+    end
+    return @unassigned_shifts
+
   end
 
 
