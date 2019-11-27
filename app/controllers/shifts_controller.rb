@@ -16,13 +16,23 @@ class ShiftsController < ApplicationController
   end
 
   def create
-    @shift = Shift.new(shift_params)
-    @shift.skills = params[:shift][:skills]
+    # binding.pry
     # @shift.department = @department
-    if @shift.save
-      redirect_to departments_path, notice: "New shift was added"
+    if params[:shift][:start_time].split(" ")[0].split("-")[2] < params[:shift][:end_time].split(" ")[0].split("-")[2]
+      split_shift
+      if @shift_one.save && @shift_two.save
+        redirect_to departments_path, notice: "New shift was added"
+      else
+        render :new
+      end
     else
-      render :new
+      @shift = Shift.new(shift_params)
+      @shift.skills = params[:shift][:skills]
+      if @shift.save
+        redirect_to departments_path, notice: "New shift was added"
+      else
+        render :new
+      end
     end
   end
 
@@ -45,6 +55,41 @@ class ShiftsController < ApplicationController
   end
 
   private
+
+  def split_shift
+      @shift_one = Shift.new(start_time: params[:shift][:start_time], end_time: sh1_end_time, skills: params[:shift][:skills], department_id: params[:shift][:department_id], user_id: params[:shift][:user_id])
+      @shift_one.save
+      @shift_two = Shift.new(start_time: sh2_start_time, end_time: params[:shift][:end_time], skills: params[:shift][:skills], department_id: params[:shift][:department_id], user_id: params[:shift][:user_id])
+      @shift_two.save
+  end
+
+  def sh1_end_time
+    # params[:shift][:start_time].split(",")[0].split("-")[2]
+    a = params[:shift]
+    b = a[:start_time]
+    c = b.split
+    d = c[0]
+    e = d.split("-")
+    sh1_y = e[0].to_i
+    sh1_m = e[1].to_i
+    sh1_d = e[2].to_i
+
+    sh1_end_time = DateTime.new(sh1_y, sh1_m, sh1_d).end_of_day
+  end
+
+  def sh2_start_time
+    a = params[:shift]
+    b = a[:end_time]
+    c = b.split
+    d = c[0]
+    e = d.split("-")
+    sh2_y = e[0].to_i
+    sh2_m = e[1].to_i
+    sh2_d = e[2].to_i
+
+    sh2_start_time = DateTime.new(sh2_y, sh2_m, sh2_d).beginning_of_day
+  end
+
 
   def shift_params
     params.require(:shift).permit(:start_time, :end_time, :skills, :department_id, :user_id)
