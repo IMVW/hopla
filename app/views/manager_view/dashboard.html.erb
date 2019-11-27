@@ -9,7 +9,7 @@
            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
          </div>
       </div>
-      <p>Hi <%=@user.first_name %>!</p>
+      <p><%= @greet %> <%=@user.first_name %>!</p>
     </div>
   </div>
 
