@@ -38,15 +38,18 @@ class ShiftsController < ApplicationController
 
   def edit
     show_skills
-    @users = user_name
-    @shifts = Shift.find(params[:id])
+    # @users = user_name
+    @shift = Shift.find(params[:id])
+    @employees_department = @shift.department.users
+    @users = User.all.order(:first_name)
+    @shift_skills = @shift.skills
   end
 
   def update
     @shift.skills = params[:shift][:skills]
     @shift.update(shift_params)
     # @department = Department.find(params[:department_id])
-    redirect_to departments_path
+    redirect_to edit_shift_path(@shift)
   end
 
   def destroy
@@ -104,12 +107,12 @@ class ShiftsController < ApplicationController
     @all_users_skills_checkbox = @all_users_skills.map { |value| [value, value] }
   end
 
-  def user_name
-    users = User.all
-    @a_user = []
-    users.each do |user|
-      @a_user << [user.first_name, user.id]
-    end
-    return @a_user
-  end
+  # def user_name
+  #   users = User.all
+  #   @a_user = []
+  #   users.each do |user|
+  #     @a_user << [user.first_name, user.id]
+  #   end
+  #   return @a_user
+  # end
 end
