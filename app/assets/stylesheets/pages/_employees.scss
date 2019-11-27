@@ -1,5 +1,9 @@
+.button.d-flex.justify-content-end {
+  width: 94%;
+}
+
 .table-wrapper {
-  height: 450px;
+  height: 525px;
   overflow-y: auto;
   border: 10px solid #F4F8FB;
   .employee-table {
@@ -41,7 +45,7 @@
   width: 170px;
 }
 #th-4 {
-  width: 340px;
+  width: 462px;
 }
 #th-5 {
   width: 64px;
@@ -61,7 +65,7 @@
   width: 170px;
 }
 #td-4 {
-  width: 340px;
+  width: 462px;
 }
 #td-5 {
   width: 40px;
@@ -69,10 +73,10 @@
 }
 
 .department-wrapper {
+  padding: 5px;
   background-color: #F4F8FB;
-  width: 962px;
-  padding: 20px;
   margin-top: 20px;
+  width: 1098px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,16 +84,20 @@
     margin-bottom: 0;
     color:#FF5D49;
     font-weight: bolder;
-    background-color: white;
     padding: 20px;
   }
 }
 .department {
-  background-color: white;
-  color: black;
-  padding: 5px 20px;
-  margin: 0 20px;
+  color: white;
+  padding: 3px 8px;
+  margin: 5px 21px;
+  border-radius: 30px;
+  font-weight: lighter;
+  font-size: 14px;
+  line-height: 2rem;
+  min-width: 70px;
 }
+
 .plus {
   a {color: white;
     font-size: 25px;
@@ -107,6 +115,11 @@
 .all-departments {
   display: flex;
   overflow-x: auto;
+  flex-grow: 1;
+}
+
+.new-department{
+  align-items: center;
 }
 
 h1 {
@@ -116,4 +129,17 @@ h1 {
   margin: 20px 0;
 }
 
+form#new_department {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
 
+.form-group.string.required.department_name {
+    margin-right: 10px;
+}
+
+.form-group.color.optional.department_color {
+    margin-right: 10px;
+    width: 65px;
+}

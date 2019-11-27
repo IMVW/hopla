@@ -37,3 +37,16 @@
 .makeitblue {
   background-color: #f4f8fb;
 }
+
+
+.simple_form label {
+    float: left;
+    width: 100px;
+    text-align: left;
+    margin: 2px 10px;
+}
+
+
+.form-group.select.optional.shift_department_id.form-group-valid {
+    margin-right: 55px;
+}

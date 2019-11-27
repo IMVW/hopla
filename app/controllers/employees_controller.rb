@@ -5,7 +5,7 @@ class EmployeesController < ApplicationController
   def index
     # Show a list of all the employees
     @users = User.all.order(:first_name)
-    @departments = Department.all
+    @departments = Department.all.order(:id)
     @department = Department.new
 
     #@department = Department.find(params[:department_id])
