@@ -27,16 +27,50 @@
 <% end %>
 </div>
 
+<!-- <div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div> -->
+
+
+
 <div class="shift-employees d-flex">
+
   <div class="employees-department">
     <h1>Employees with department</h1>
-    <% @employees_department.each do |employee| %>
-      <div>
-        <%= employee.first_name %>
+      <% @employees_department.each do |employee| %>
+
+      <div class="card-product">
+
+        <div class="left-box" style = "background-color: <%= employee.departments[0].color %>">
+          <%=(cl_image_tag employee.photo, height: 60, width: 60, crop: :fill, background: "#{employee.departments[0].color}" , radius: :max, border: { width: 4, color: "#{employee.departments[0].color}" })%>
+        </div>
+
+        <div class="card-product-infos">
+          <p><%= employee.first_name %> <%= employee.last_name %></p>
+          <div class="d-flex">
+            <% if employee.skills != nil %>
+              <% employee.skills.each do |skill| %>
+              <% if skill != "" %>
+              <p class="btn-v2-se"><%= skill%></p>
+              <% end %>
+              <% end %>
+              <% end %>
+          </div>
+        </div>
       </div>
-      <% end %>
+  <% end %>
+    </div>
   </div>
-  <div class="employees-skills">
+
+
+
+
+
+  <div class="employees-skills card-product">
     <h1>Employees with skills</h1>
     <% @shift_skills.each do |skill| %>
      <% emplos = User.where('skills @> ARRAY[?]::varchar[]', skill) %>
@@ -47,4 +81,5 @@
       <% end %>
      <% end %>
   </div>
+</div>
 </div>
