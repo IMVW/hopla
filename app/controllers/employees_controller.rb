@@ -42,7 +42,6 @@ class EmployeesController < ApplicationController
   def edit
     show_skills
     @departments = Department.all
-
     # see who list employees
     # edit the employee that is selected
   end
@@ -91,12 +90,17 @@ class EmployeesController < ApplicationController
     @all_users_skills_checkbox = @all_users_skills.map { |value| [value, value] }
   end
 
+  def show_department
+
+  end
+
   def no_devise_user_params
     {
       first_name: params[:user][:first_name],
       last_name: params[:user][:last_name],
       manager: params[:user][:manager],
       skills: params[:user][:skills].reject { |c| c.empty? },
+      department_id: params[:user][:department_id],
       phone_number: params[:user][:phone_number],
       birthday: params[:user][:birthday],
       photo: params[:user][:photo],
