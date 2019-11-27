@@ -3,24 +3,15 @@ class EmployeesController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    # Show a list of all the employees
     @users = User.all.order(:first_name)
     @departments = Department.all.order(:id)
     @department = Department.new
-
-    #@department = Department.find(params[:department_id])
-  end
-
-  def show
-    # Show a specific employee
   end
 
   def new
     show_skills
     @user = User.new
     @departments = Department.all
-
-    # show form to Create a new user
   end
 
   def create
@@ -36,47 +27,33 @@ class EmployeesController < ApplicationController
       render :new
       flash[:alert] = "Something went wrong, please try again"
     end
-    # Create and save a new employee
   end
 
   def edit
     show_skills
     @departments = Department.all
     @department = @user.departments.first
-    p @departments
-
   end
 
   def update
-    # department = Department.find(params[:user][:department_id].to_i)
-    # DepartmentsUser.where(user: @user).destroy_all
-    # DepartmentsUser.create!(user: @user, department: department)
-
-    # @user.update(user_params)
-    # redirect_to employee_path
-    # flash[:notice] = "Employee updated"
-
     @departments = Department.all
     @user = User.find(params[:id])
     @department = @user.departments.first
     if @user.update(no_devise_user_params)
-      department = Department.find(params[:user][:department_id].to_i)
-      # DepartmentsUser.where(user_id: @user.id).destroy_all
-      # @user.departments_users.destroy_all
-      # DepartmentsUser.find(user: @user, department: department).destroy_all
       @user.departments.destroy_all
-      DepartmentsUser.create!(user: @user, department: department)
+      unless params[:user][:department_id].empty?
+        department = Department.find(params[:user][:department_id].to_i)
+        DepartmentsUser.create!(user: @user, department: department)
+      end
       redirect_to employees_path
       flash[:notice] = "Employee updated"
     else
       render :new
       flash[:alert] = "Something went wrong, please try again"
     end
-    # update and save employee
   end
 
   def destroy
-    # delete employee
     @user.destroy
     redirect_to employee_path, notice: "user deleted"
   end
@@ -92,17 +69,12 @@ class EmployeesController < ApplicationController
     @all_users_skills_checkbox = @all_users_skills.map { |value| [value, value] }
   end
 
-  def show_department
-
-  end
-
   def no_devise_user_params
     {
       first_name: params[:user][:first_name],
       last_name: params[:user][:last_name],
       manager: params[:user][:manager],
       skills: params[:user][:skills].reject { |c| c.empty? },
-      department_id: params[:user][:department_id],
       phone_number: params[:user][:phone_number],
       birthday: params[:user][:birthday],
       photo: params[:user][:photo],
