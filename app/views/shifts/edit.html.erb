@@ -2,22 +2,84 @@
 <%= simple_form_for @shift, html: {method: :patch}  do |f| %>
   <div class="form-block">
     <div class="block-header">
-      <h2>Update shift</h2>
+      <h2>Update <%= @shift.department.name %> shift</h2>
     </div>
-    <div class="inside-block ">
-      <div class="d-flex">
-      <%= f.input :start_time, as: 'string', input_html: {class: 'picker', style:'width: 400px'}%>
-      <%= f.input :end_time, as: 'string', input_html: {class: 'picker', style:'width: 400px'} %>
+    <div class="d-flex">
+      <div class="inside-block ">
+        <div class="">
+          <span class="labeltext" ><%= f.input :start_time, as: 'string', input_html: {class: 'picker', style:'width: 400px'}%></span>
+          <span class="labeltext" ><%= f.input :end_time, as: 'string', input_html: {class: 'picker', style:'width: 400px'} %></span>
+        </div>
+        <div class="d-flex">
+          <span class="labeltext" ><%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
+        </div>
+        <%= f.submit "update shift", class: "btn btn-primary" %></span>
       </div>
-
-      <div class="d-flex">
-      <%= f.input :department_id, collection: Department.all, selected: 1 %>
-      <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
+      <div class="user-select makeitblue">
+        <h6>Assign Employee</h6>
+        <%= f.association :user, label_method: :first_name, collection: @users, label: false, input_html: { style:'width: 300px'}%>
+        <%= link_to "delete", shift_path(@shift),
+              method: :delete,
+              data: { confirm: "Are you sure?"} %>
+        <%= f.submit "assign employee", class: "btn btn-primary" %></span>
       </div>
-      <%= f.input :user_id,  collection: @users %>
-
-
-
-  <%= f.submit "update shift", class: "btn btn-primary" %>
+  </div>
 <% end %>
+</div>
 
+<!-- <div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>Product name</h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div> -->
+
+
+
+<div class="shift-employees d-flex">
+
+  <div class="employees-department">
+    <h1>Employees with department</h1>
+      <% @employees_department.each do |employee| %>
+
+      <div class="card-product">
+
+        <div class="left-box" style = "background-color: <%= employee.departments[0].color %>">
+          <%=(cl_image_tag employee.photo, height: 60, width: 60, crop: :fill, background: "#{employee.departments[0].color}" , radius: :max, border: { width: 4, color: "#{employee.departments[0].color}" })%>
+        </div>
+
+        <div class="card-product-infos">
+          <p><%= employee.first_name %> <%= employee.last_name %></p>
+          <div class="d-flex">
+            <% if employee.skills != nil %>
+              <% employee.skills.each do |skill| %>
+              <% if skill != "" %>
+              <p class="btn-v2-se"><%= skill%></p>
+              <% end %>
+              <% end %>
+              <% end %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="employees-skills card-product">
+    <h1>Employees with skills</h1>
+    <% @shift_skills.each do |skill| %>
+     <% emplos = User.where('skills @> ARRAY[?]::varchar[]', skill) %>
+      <% emplos.each do |emplo| %>
+      <div>
+        <%= emplo.first_name %>
+      </div>
+      <% end %>
+     <% end %>
+  </div>
+</div>
+</div>
