@@ -12,13 +12,14 @@ class ShiftsController < ApplicationController
   def new
     @shift = Shift.new
     @department = Department.find(params[:department_id])
-    if
+    show_skills
   end
 
   def create
     # binding.pry
     # @shift.department = @department
     if params[:shift][:start_time].split(" ")[0].split("-")[2] < params[:shift][:end_time].split(" ")[0].split("-")[2]
+      split_shift
       if @shift_one.save && @shift_two.save
         redirect_to departments_path, notice: "New shift was added"
       else
@@ -33,9 +34,6 @@ class ShiftsController < ApplicationController
         render :new
       end
     end
-
-
-
   end
 
   def edit
