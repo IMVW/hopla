@@ -1,5 +1,5 @@
 <div class="form-page container">
-<%= simple_form_for @shift, html: {method: :patch}  do |f| %>
+<%= simple_form_for (@shift remote: true), html: {method: :patch}  do |f| %>
   <div class="form-block">
     <div class="block-header">
       <h2>Update shift</h2>
@@ -9,6 +9,7 @@
       <%= f.input :start_time, as: 'string', input_html: {class: 'picker', style:'width: 400px'}%>
       <%= f.input :end_time, as: 'string', input_html: {class: 'picker', style:'width: 400px'} %>
       </div>
+
       <div class="d-flex">
       <!-- <%= f.input :department_id, collection: Department.all, selected: 1 %>
       <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>-->

@@ -9,16 +9,17 @@ $border-radius: 20px;
   top: 50%;
   left: 50%;
   display: flex;
-  width: 250px;
+  width: 300px;
   transform: translate(-50%, -50%);
   flex-wrap: wrap;
-  border-radius: $border-radius;
+  border-radius:$border-radius;
+  height: 200px;
 
   .weatherIcon{
     flex: 1 100%;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
-    background: white;
+    background: #f4f8fb;
     font-family: weathericons;
     display: flex;
     align-items: center;
