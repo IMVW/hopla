@@ -42,8 +42,9 @@ class EmployeesController < ApplicationController
   def edit
     show_skills
     @departments = Department.all
-    # see who list employees
-    # edit the employee that is selected
+    @department = @user.departments.first
+    p @departments
+
   end
 
   def update
@@ -57,6 +58,7 @@ class EmployeesController < ApplicationController
 
     @departments = Department.all
     @user = User.find(params[:id])
+    @department = @user.departments.first
     if @user.update(no_devise_user_params)
       department = Department.find(params[:user][:department_id].to_i)
       # DepartmentsUser.where(user_id: @user.id).destroy_all
@@ -107,6 +109,7 @@ class EmployeesController < ApplicationController
       photo_cache: params[:user][:photo_cache]
     }
   end
+
   def user_params
     params.require(:user).permit(:first_name, :last_name, :manager, :skills, :phone_number, :birthday, :photo, :photo_cache)
   end
