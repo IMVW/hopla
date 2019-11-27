@@ -7,7 +7,7 @@ class DepartmentsController < ApplicationController
     @departments = Department.all.order(:id)
     @hours = hours_in_day
     @days = days_in_year
-    @days_array= compile_date_month_array
+
   end
 
   def new
@@ -41,31 +41,7 @@ class DepartmentsController < ApplicationController
 
   private
 
-  def compile_date_month_array
-    @months = []
-    number_days_before = Date.today.beginning_of_month.wday
-    days_array = ((Date.today.beginning_of_month)...(Date.today.end_of_month)).to_a
 
-    number_days_before.times do
-      days_array.unshift("")
-    end
-   days_array
-
-    # next_number_days_before = ((Date.today) + 1.month).beginning_of_month.wday
-    # start_month = (((Date.today) + 1.month).beginning_of_month)
-    # end_month = (((Date.today) + 1.month).end_of_month)
-    # next_month_days_array = (start_month...end_month).to_a
-
-    # next_number_days_before.times do
-    #   next_month_days_array.unshift("")
-    # end
-    # @months << next_month_days_array
-    # return @months
-  end
-
-  # def compile_date_next_month_array
-
-  # end
 
   def department_params
     params.require(:department).permit(:name, :color)
