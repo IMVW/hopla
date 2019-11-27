@@ -36,7 +36,7 @@ class DepartmentsController < ApplicationController
 
   def destroy
     @department.destroy
-    redirect_to departments_path, notice: "Department deleted"
+    redirect_to employees_path, notice: "Department deleted"
   end
 
   private

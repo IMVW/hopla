@@ -23,8 +23,8 @@ Weather();
 
 
   document.addEventListener("DOMContentLoaded", (event) => {
-    const previousSpace = document.querySelector(".nav-link.active").parentElement.previousElementSibling
-    const nextSpace = document.querySelector(".nav-link.active").parentElement.nextElementSibling
+    let previousSpace = document.querySelector(".nav-link.active").parentElement.previousElementSibling
+    let nextSpace = document.querySelector(".nav-link.active").parentElement.nextElementSibling
 
     previousSpace.classList.add("top-border")
     nextSpace.classList.add("bottom-border")

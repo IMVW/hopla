@@ -10,14 +10,13 @@
       <%= f.input :end_time, as: 'string', input_html: {class: 'picker', style:'width: 400px'} %>
       </div>
       <div class="d-flex">
-      <!-- <%= f.input :department_id, collection: Department.all, selected: 1 %>
-      <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>-->
-      <%= f.association :user, label_method: :first_name, collection: @shifts.department.users%>
+      <%= f.input :department_id, collection: Department.all, selected: 1 %>
+      <%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
       </div>
+      <%= f.input :user_id,  collection: @users %>
 
 
 
   <%= f.submit "update shift", class: "btn btn-primary" %>
 <% end %>
-
 
