@@ -24,6 +24,7 @@
 }
 
 
+
 .upper-content {
   display:flex;
   .left-content {
@@ -51,11 +52,11 @@
 
 // Employees in today----------------------------------------------------------
 .employee-status {
-background-color: #F4F8FB;
-padding: 20px;
-display: flex;
-flex-direction: column;
-width:80%;
+  background-color: #F4F8FB;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
 }
 .department-lable {
   display: flex;
