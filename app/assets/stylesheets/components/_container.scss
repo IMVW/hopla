@@ -27,7 +27,8 @@
   align-items: center;
   height: 100%;
   padding-left: 0;
-  overflow: auto;
+  // overflow: auto; 28.11.
+  position: fixed; // new 28.11.
   margin-top: 30px;
 }
 

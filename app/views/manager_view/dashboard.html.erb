@@ -76,7 +76,10 @@
         <% @unassigned_shifts.each do |shift| %>
           <ul>
             <li class= "d-flex align-items-center" style="font-weight: lighter" >
-              <%= link_to "#{shift.start_time.strftime('%b %d.')} #{shift.start_time.strftime('%H:%M')} - #{shift.end_time.strftime('%H:%M')}", edit_shift_path(shift) %>
+              <div class="d-flex flex-column">
+               <%= shift.start_time.strftime('%b %d.') %>
+                <%= link_to "#{shift.start_time.strftime('%H:%M')} - #{shift.end_time.strftime('%H:%M')}", edit_shift_path(shift) %>
+              </div>
               <span class="department" style="background-color: <%= shift.department.color != nil ? shift.department.color : grey %>; width: 73px">
                 <%= shift.department.name %>
               </span>
