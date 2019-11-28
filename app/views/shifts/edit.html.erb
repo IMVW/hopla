@@ -20,7 +20,7 @@
       </div>
       <div class="user-select makeitblue">
         <h6>Assign Employee</h6>
-        <%= f.association :user, label_method: :first_name, collection: @users, label: false, input_html: { style:'width: 300px'}%>
+        <%= f.association :user, label_method: :first_name, collection: @users_all, label: false, input_html: { style:'width: 300px'}%>
         <%= f.submit "assign employee", class: "btn-v1" %></span>
       </div>
   </div>
@@ -34,7 +34,7 @@
     <h1>Employees with matching department:</h1>
     <% @employees_department.each do |employee| %>
       <div class="card-product">
-        <div class="left-box" style = "background-color: <%= employee.departments[0].color %>">
+        <div class="left-box" style = "background-color: <%=  employee.departments[0].color %>">
           <%=(cl_image_tag employee.photo, height: 60, width: 60, crop: :fill, background: "#{employee.departments[0].color}" , radius: :max, border: { width: 4, color: "#{employee.departments[0].color}" })%>
         </div>
         <div class="card-product-infos">
@@ -55,33 +55,27 @@
 
   <div class="employees-skills">
     <h1>Employees with matching skills:</h1>
-    <% if @shift_skills != nil %>
-      <% @shift_skills.each do |skill| %>
-        <% employees = User.where('skills @> ARRAY[?]::varchar[]', skill) %>
-          <% employees.each do |employee| %>
-            <%  %>
-            <div class="card-product">
-              <div class="left-box" style = "background-color: <%= employee.departments[0].color %>">
-                <%=(cl_image_tag employee.photo, height: 60, width: 60, crop: :fill, background: "#{employee.departments[0].color}" , radius: :max, border: { width: 4, color: "#{employee.departments[0].color}" })%>
-              </div>
-              <div class="card-product-infos">
-                <p><%= employee.first_name %> <%= employee.last_name %></p>
-                <div class="d-flex">
-                  <% if employee.skills != nil %>
-                    <% employee.skills.each do |skill| %>
-                      <% if skill != "" %>
-                        <span class="btn-v2-se"><%= skill%></span>
-                      <% end %>
+      <% if !@skilled_employees.nil? %>
+        <% @skilled_employees.each do |employee| %>
+          <div class="card-product">
+            <div class="left-box" style = "background-color: <%= employee.departments[0].color %>">
+              <%=(cl_image_tag employee.photo, height: 60, width: 60, crop: :fill, background: "#{employee.departments[0].color}" , radius: :max, border: { width: 4, color: "#{employee.departments[0].color}" })%>
+            </div>
+            <div class="card-product-infos">
+              <p><%= employee.first_name %> <%= employee.last_name %></p>
+              <div class="d-flex">
+                <% if employee.skills != nil %>
+                  <% employee.skills.each do |skill| %>
+                    <% if skill != "" %>
+                      <span class="btn-v2-se"><%= skill%></span>
                     <% end %>
                   <% end %>
-                </div>
+                <% end %>
               </div>
             </div>
-          <% end %>
+          </div>
         <% end %>
-      <% else %>
-        <p>Select shift skills to see more matching employees...</p>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
