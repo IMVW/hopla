@@ -22,9 +22,7 @@ class ShiftsController < ApplicationController
     if @shift.save
       redirect_to departments_path, notice: "New shift was added"
     else
-      #render :new
-      #redirect_to departments_path, notice: "Shift wasnt created check times "
-      redirect_to departments_path, alert: "Shift wasnt created invalid times "
+      redirect_to departments_path, alert: "Shift wasnt created invalid times"
     end
   end
 
