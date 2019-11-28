@@ -1,6 +1,6 @@
 class ShiftsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_shift, only: [:show, :edit, :update, :destroy]
+  before_action :set_shift, only: [:show, :edit, :update, :destroy, :users_with_department]
 
   def index
     @shifts = Shift.all
@@ -41,8 +41,9 @@ class ShiftsController < ApplicationController
     # @users = user_name
     @shift = Shift.find(params[:id])
     @employees_department = @shift.department.users
-    @users = User.all.order(:first_name)
+    @users = user_selected_on_skills_minus_department
     @shift_skills = @shift.skills
+    @users_all = User.all
   end
 
   def update
@@ -60,10 +61,10 @@ class ShiftsController < ApplicationController
   private
 
   def split_shift
-      @shift_one = Shift.new(start_time: params[:shift][:start_time], end_time: sh1_end_time, skills: params[:shift][:skills], department_id: params[:shift][:department_id], user_id: params[:shift][:user_id])
-      @shift_one.save
-      @shift_two = Shift.new(start_time: sh2_start_time, end_time: params[:shift][:end_time], skills: params[:shift][:skills], department_id: params[:shift][:department_id], user_id: params[:shift][:user_id])
-      @shift_two.save
+    @shift_one = Shift.new(start_time: params[:shift][:start_time], end_time: sh1_end_time, skills: params[:shift][:skills], department_id: params[:shift][:department_id], user_id: params[:shift][:user_id])
+    @shift_one.save
+    @shift_two = Shift.new(start_time: sh2_start_time, end_time: params[:shift][:end_time], skills: params[:shift][:skills], department_id: params[:shift][:department_id], user_id: params[:shift][:user_id])
+    @shift_two.save
   end
 
   def sh1_end_time
@@ -93,7 +94,6 @@ class ShiftsController < ApplicationController
     sh2_start_time = DateTime.new(sh2_y, sh2_m, sh2_d).beginning_of_day
   end
 
-
   def shift_params
     params.require(:shift).permit(:start_time, :end_time, :skills, :department_id, :user_id)
   end
@@ -107,6 +107,35 @@ class ShiftsController < ApplicationController
     @all_users_skills_checkbox = @all_users_skills.map { |value| [value, value] }
   end
 
+  def users_with_department
+    users_that_match = []
+    User.all.each { |user| (users_that_match << user) if (user.departments.size == 1) && !(user.departments[0].id == @shift.department.id)}
+    users_that_match.uniq
+  end
+
+  def user_selected_on_skills_minus_department
+    @shift = Shift.find(params[:id])
+    users = users_with_department
+    @shift_skills = @shift.skills
+    @skilled_employees = []
+    if !@shift_skills.nil?
+      @shift_skills.each do |skill|
+        unless skill == ""
+          users.each do |user|
+            @skilled_employees << user if user.skills.include?(skill)
+          end
+        end
+      end
+    end
+    return @skilled_employees.uniq!
+  end
+
+end
+
+
+      # User.all.pluck(:skills).flatten.uniq
+
+
   # def user_name
   #   users = User.all
   #   @a_user = []
@@ -115,4 +144,3 @@ class ShiftsController < ApplicationController
   #   end
   #   return @a_user
   # end
-end
