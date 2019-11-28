@@ -25,7 +25,7 @@
 }
 
 .bottom-box {
-  background-color: white;
+  background-color: #F4F8FB;
   position: fixed;
   top: calc(100vh - 40px);
   border-bottom-right-radius: 29px;
@@ -129,6 +129,7 @@
   height: calc(100% / 8);
   z-index: 1;
   margin-top: -1px;
+  background-color: white;
 }
 
 .shift-link {
