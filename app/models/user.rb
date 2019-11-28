@@ -10,6 +10,13 @@ class User < ApplicationRecord
   has_many :departments, through: :departments_users
   has_many :shifts
 
+  def already_scheduled?(start_date, end_date)
+    !self.shifts.where('shifts.start_time <= ? AND ? <= shifts.end_time', end_date , start_date).empty?
+  end
+
+  def who_is_in?(time_now)
+  end
+
   validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
