@@ -28,7 +28,7 @@
       <div>
         <div class="inside-block">
           <h6>Department & skills</h6>
-          <span class="labeltext" ><%= f.input :department_id, collection: @departments, selected: @user.departments, wrapper_html: {class: 'span6', style:'width: 300px'}, required: true, autofocus: true %></span>
+          <span class="labeltext" ><%= f.input :department_id, collection: @departments, selected: @department&.id, wrapper_html: {class: 'span6', style:'width: 300px'}, required: true, autofocus: true %></span>
           <span class="labeltext" ><%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline,  label: false %></span>
         </div>
       </div>

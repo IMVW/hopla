@@ -3,13 +3,20 @@
   }
 
 .top-wrapper {
-  position: fixed;
+  position: sticky;
   z-index: 6;
-  top: 8px;
-  width: 82%;
-  left: 225px;
+  top: 0;
+  width: 100%;
   border-top-right-radius: 17px;
   overflow: hidden;
+
+  // position: fixed;
+  // z-index: 6;
+  // top: 8px;
+  // width: 82%;
+  // left: 225px;
+  // border-top-right-radius: 17px;
+  // overflow: hidden;
 }
 
 .calendar-header {
@@ -111,8 +118,8 @@
       text-decoration: none;
     }
     p {
-      border: 1px solid white;
-      color: white;
+      border: 1px solid black;
+      color: black;
     }
   }
 }

@@ -1,0 +1,41 @@
+.employees-department, .employees-skills {
+  height: 500px;
+  width: 100%;
+}
+.shift-employees {
+    padding-left: 23px;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 80px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  width: 60%;
+  margin-top: 10px;
+  }
+.left-box{
+  height: 100%;
+  width: 80px;
+  object-fit: cover;
+
+  img {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+}
+
+.card-product p {
+  font-size: 14px;
+  line-height: 1;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 5px;
+  font-weight: bolder;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
