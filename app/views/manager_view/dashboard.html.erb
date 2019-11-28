@@ -31,6 +31,9 @@
   <div class="today-in">
   <h1 style="padding-left: 14px; margin-bottom: 0px">Who is in today?</h1>
     <div class="employee-status">
+
+
+
         <% Shift.all.each do |shift| %>
           <% if shift.start_time.day == Date.today.day && shift.start_time.month == Date.today.month %>
             <% if shift.user != nil %>
@@ -53,19 +56,26 @@
     </div>
   </div>
 
-
-
   <div class="notification">
     <div class="notes">
-      <h2>NOTIFICATIONS</h2>
-      <p><%=@unassigned_shifts.count%> unassigned Shifts:</p>
-      <% @unassigned_shifts.each do |shift| %>
-      <ul>
-        <li>
-          <%= link_to "#{shift.start_time.strftime('%b %d.')} #{shift.start_time.strftime('%H:%M')} - #{shift.end_time.strftime('%H:%M')} (#{shift.department.name})", edit_shift_path(shift) %>
-        </li>
-      </ul>
-    <% end %>
+      <div class="block-header">
+        <div class="form-page" style="text-center">
+          <h2>Notifications</h2>
+        </div>
+      </div>
+      <div style ="padding:  10px 10px">
+        <h1 style = "font-size: 18px"><%=@unassigned_shifts.count%> unassigned Shifts:</h1>
+        <% @unassigned_shifts.each do |shift| %>
+        <ul>
+          <li class= "d-flex align-items-center">
+            <%= link_to "#{shift.start_time.strftime('%b %d.')} #{shift.start_time.strftime('%H:%M')} - #{shift.end_time.strftime('%H:%M')}", edit_shift_path(shift) %>
+             <span class="department" style="background-color: <%= shift.department.color != nil ? shift.department.color : grey %>; width: 73px">
+              <%= shift.department.name %>
+            </span>
+          </li>
+        </ul>
+      <% end %>
+      </div>
     </div>
   </div>
 
