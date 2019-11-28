@@ -5,6 +5,7 @@
 .table-wrapper {
   height: 525px;
   overflow-y: auto;
+  padding-left: 30px; // NEW 28.11.
   border: 10px solid #F4F8FB;
   .employee-table {
     th {

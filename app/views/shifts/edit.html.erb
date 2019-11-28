@@ -15,10 +15,12 @@
             <span class="labeltext" ><%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline %>
           </div>
           <%= f.submit "Update shift", class: "btn-v1" %></span>
-          <%= link_to "Delete shift", shift_path(@shift), class: "btn-v1",
-                method: :delete,
-                data: { confirm: "Are you sure?"} %>
-          <%=link_to "Back", departments_path, class: "btn-v1 text-right"%>
+
+          <%= link_to root_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn-v1-trash" do %>
+            <i class="fas fa-trash"></i>
+          <% end %>
+
+          <%=link_to "Back", departments_path, class: "btn-v1-trash text-right"%>
         </div>
         <div class="user-select makeitblue">
           <h6>Assign Employee</h6>
