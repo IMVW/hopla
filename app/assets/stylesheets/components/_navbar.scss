@@ -40,10 +40,6 @@
   border-radius: 50px 0 0 50px;
   background-color: #F4F8FB;
   color: #5358E2;
-  .nav-link::before {
-    content:  url(rounded-top.jpg);
-    color: black;
-  }
 }
 
 .nav-link {
@@ -60,20 +56,17 @@
 .space {
   border-radius: 0;
       background-color: #fe5d49;
-  transition-delay: 100ms;
 }
 
 .space.top-border, .spaceholder.top-border {
     background-color: #fe5d49;
     border-bottom-right-radius: 30px;
-      transition: border-radius 200ms ease;
 
 }
 
 .space.bottom-border, .spaceholder.bottom-border {
     background-color: #fe5d49;
     border-top-right-radius: 30px;
-      transition: border-radius 200ms ease;
 
 }
 
@@ -81,7 +74,6 @@
     background-color: #fe5d49;
     border-bottom-right-radius: 30px;
         border-top-right-radius: 30px;
-          transition: border-radius 200ms ease;
 
 }
 
@@ -91,8 +83,7 @@
   width: 100%;
   flex-grow: 1;
   background: #FF5D49;
-      transition-delay: 100ms;
-
+  //transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 }
 .spaceholder.top {

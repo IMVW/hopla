@@ -96,6 +96,14 @@
   font-size: 14px;
   line-height: 2rem;
   min-width: 70px;
+  text-align: center;
+  &:hover {
+    opacity: 0.8;
+  }
+  a:hover {
+    text-decoration: none;
+    color: white;
+  }
 }
 
 .plus {

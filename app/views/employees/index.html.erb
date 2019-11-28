@@ -17,9 +17,9 @@
       <% @users.each do |user| %>
       <tr>
         <% if user.photo.file != nil %>
-         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag user.photo, height: 50, width: 50, crop: :fill, background: '#F4F8FB', radius: :max, border:  "4px_solid_grey")%></td>
+         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag user.photo, height: 50, width: 50, crop: :fill, background: '#F4F8FB', radius: :max, radius: :max, border: { width: 1, color: "#F4F8FB" })%></td>
         <% else %>
-         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag "empty-avatar.png", width: 50, height: 50, crop: :fill, radius: :max, border:  "4px_solid_grey")%></td>
+         <td id ="td-0" data-toggle="modal" data-target= "<%="#userModal#{user.id}"%>"><%=(cl_image_tag "empty-avatar.png", width: 50, height: 50, crop: :fill, radius: :max, border: { width: 1, color: "#F4F8FB" })%></td>
         <% end %>
 
         <td id="td-1"><%= user.first_name %></td>

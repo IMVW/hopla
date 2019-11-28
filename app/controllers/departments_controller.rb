@@ -17,12 +17,13 @@ class DepartmentsController < ApplicationController
     @department = Department.new(department_params)
     if @department.save
       respond_to do |format|
-        format.html { redirect_to departments_path, notice: "New department created" }
+        format.html { redirect_to employees_path, notice: "Department sucessfully created" }
         format.js  # <-- will render `app/views/reviews/create.js.erb`
       end
     else
       render :new
     end
+
   end
 
   def edit
