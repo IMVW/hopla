@@ -32,13 +32,13 @@
     // transition: all 200ms ease;
   &:hover {
     border-radius: 50px 0 0 50px;
-    background-color: white;
+    background-color: #F4F8FB;
     color: #5358E2;
   }
   }
 .nav-link.active {
   border-radius: 50px 0 0 50px;
-  background-color: white;
+  background-color: #F4F8FB;
   color: #5358E2;
   .nav-link::before {
     content:  url(rounded-top.jpg);

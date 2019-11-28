@@ -8,7 +8,7 @@
       <%= f.input :start_time, as: 'string', input_html: {class: 'picker'}, placeholder: 'Start-Time', label: false%>
       <%= f.input :end_time, as: 'string', input_html: {class: 'picker'}, placeholder: 'End-Time', label: false%>
       <%= f.input :department_id, collection: Department.all, selected: 1, label: false%>
-      <%= f.submit "ADD SHIFT", class: "btn-v1" %>
+      <%= f.submit "Add shift", class: "btn-v1" %>
       <% end %>
     </div>
 

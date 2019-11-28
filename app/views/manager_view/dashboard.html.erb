@@ -28,42 +28,32 @@
       </div>
   </div>
 
-  <div class="today-in d-flex justify-content-center">
+  <div class="today-in">
+  <h1 style="padding-left: 14px; margin-bottom: 0px">Who is in today?</h1>
     <div class="employee-status">
-      <% @departments.each do |department| %>
-        <div class="daily-department-shifts">
-          <div class="department-lable">
-            <%= department.name %>
-          </div>
-          <div class="employee-detail d-flex">
-            <% department.shifts.each do |shift| %>
-              <% if shift.start_time.day == Date.today.day && shift.start_time.month == Date.today.month %>
-                <div class="employee " style="background-color:<%=shift.department.color %>">
-                  <% if shift.user != nil %>
-                    <% if shift.user.photo.file != nil %>
-                    <div class="photo">
-                      <%=(cl_image_tag shift.user.photo, height: 70, width: 70, crop: :fill, background: "#{department.color}", radius: :max, border: { width: 4, color: "#{department.color}" })%>
-                    </div>
+        <% Shift.all.each do |shift| %>
+          <% if shift.start_time.day == Date.today.day && shift.start_time.month == Date.today.month %>
+            <% if shift.user != nil %>
+              <div class="card-product">
+                <div class="left-box" style = "background-color: <%= shift.user.departments[0].color %>">
+                  <% if shift.user.photo.file != nil %>
+                    <%=(cl_image_tag shift.user.photo, height: 70, width: 70, crop: :fill, background: "#{shift.user.departments[0].color}", radius: :max, border: { width: 4, color: "#{shift.user.departments[0].color}" })%>
                   <% else %>
-                    <div class="photo">
-                      <%=(cl_image_tag "empty-avatar.png",height: 70, width: 70, crop: :fill, background: "#{department.color}", radius: :max, border: { width: 4, color: "#{department.color}" })%>
-                    </div>
-                  <% end %>
-                  <div class="name">
-                    <%= shift.user.first_name%>
-                  </div>
-                    <div class="time-shift">
-                      <%= shift.start_time.strftime('%H:%M')%> - <%= shift.end_time.strftime('%H:%M')%>
-                    </div>
+                    <%=(cl_image_tag "empty-avatar.png",height: 70, width: 70, crop: :fill, background: "#{shift.user.departments[0].color}", radius: :max, border: { width: 4, color: "#{shift.user.departments[0].color}" })%>
                   <% end %>
                 </div>
-              <% end %>
+                <div class="card-product-infos">
+                  <p> <%= shift.user.first_name%> <%= shift.user.last_name%></p>
+                 <span style="font-weight: lighter; font-size: 14px"><%= shift.start_time.strftime('%H:%M')%> - <%= shift.end_time.strftime('%H:%M')%></span>
+                </div>
+              </div>
             <% end %>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
+        <% end %>
     </div>
   </div>
+
+
 
   <div class="notification">
     <div class="notes">
