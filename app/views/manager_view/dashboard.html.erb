@@ -28,7 +28,8 @@
       </div>
   </div>
 
-  <div class="today-in d-flex justify-content-center">
+  <div class="today-in">
+  <h1 style="padding-left: 14px; margin-bottom: 0px">Who is in today?</h1>
     <div class="employee-status">
         <% Shift.all.each do |shift| %>
           <% if shift.start_time.day == Date.today.day && shift.start_time.month == Date.today.month %>
@@ -42,10 +43,10 @@
                   <% end %>
                 </div>
                 <div class="card-product-infos">
-                  <%= shift.user.first_name%> <%= shift.user.last_name%>
-                  <%= shift.start_time.strftime('%H:%M')%> - <%= shift.end_time.strftime('%H:%M')%>
+                  <p> <%= shift.user.first_name%> <%= shift.user.last_name%></p>
+                 <span style="font-weight: lighter; font-size: 14px"><%= shift.start_time.strftime('%H:%M')%> - <%= shift.end_time.strftime('%H:%M')%></span>
                 </div>
-            </div>
+              </div>
             <% end %>
           <% end %>
         <% end %>
