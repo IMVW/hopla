@@ -15,6 +15,7 @@ class User < ApplicationRecord
   end
 
   def who_is_in?(time_now)
+
   end
 
   validates :email, presence: true
