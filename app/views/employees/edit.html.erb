@@ -21,7 +21,10 @@
           <span class="labeltext" ><%= f.input :email, wrapper_html: {class: 'span6', style:'width: 400px'}, required: true, autofocus: true%></span>
           <span class="labeltext" ><%= f.input :phone_number %></span>
           <span class="labeltext" ><%= f.input :birthday %></span>
-          <%= f.submit 'save changes', class: "btn btn-v1" %>
+          <%= f.submit 'save changes', class: "btn btn-v1", style: "margin-bottom: 11px"%>
+          <%#= link_to user_registration_path(@user), method: :delete, data: { confirm: "Are you sure?"}, class: "btn-v1-trash" do %>
+            <!-- <i class="fas fa-trash pr-2 mb-2"></i> -->
+          <%# end %>
         </div>
       </div>
 

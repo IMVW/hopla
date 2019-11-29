@@ -1,7 +1,5 @@
+<%= simple_form_for(@user, url: employees_path) do |f| %>
 <div class="form-page container">
-
-<%= simple_form_for(@user, method: :patch, url: employees_path) do |f| %>
-
   <div class="form-block">
     <div class="block-header">
       <h2> Add new employee </h2>
@@ -28,7 +26,6 @@
         <div class="inside-block">
           <h6>Department & skills</h6>
           <span class="labeltext" ><%= f.input :department_id, collection: @departments, selected: @user.departments, wrapper_html: {class: 'span6', style:'width: 300px'}, required: true, autofocus: true %></span>
-          <span class="labeltext" ><%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline,  label: false %></span>
           <span class="labeltext" ><%= f.input :skills, as: :check_boxes, collection: @all_users_skills_checkbox, wrapper: :vertical_collection_inline,  label: false %></span>
         </div>
       </div>
