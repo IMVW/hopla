@@ -15,7 +15,7 @@ class User < ApplicationRecord
   end
 
   def who_is_in?
-    already_scheduled?(Time.now, Time.now)
+    already_scheduled?((Time.now + 1.hour), (Time.now + 1.hour))
   end
 
   validates :email, presence: true
