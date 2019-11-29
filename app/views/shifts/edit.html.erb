@@ -16,7 +16,7 @@
           </div>
           <%= f.submit "Update shift", class: "btn-v1" %></span>
 
-          <%= link_to root_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn-v1-trash" do %>
+          <%= link_to shift_path(@shift), method: :delete, data: { confirm: "Are you sure?"}, class: "btn-v1-trash" do %>
             <i class="fas fa-trash"></i>
           <% end %>
 
