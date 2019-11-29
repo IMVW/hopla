@@ -24,7 +24,7 @@ class ManagerViewController < ApplicationController
     @unassigned_shifts = []
 
     @shifts.each do |shift|
-      if shift.user == nil
+      if shift.user == nil && shift.start_time >= Time.now + 2.day
        @unassigned_shifts << shift
       end
     end
