@@ -41,7 +41,7 @@
               <% if shift.start_time.day == Date.today.day && shift.start_time.month == Date.today.month %>
                 <% if shift.user != nil %>
                   <div class= "d-flex">
-                    <div class="card-product-v2">
+                    <div class="card-product-v2 <%= "not-in" unless shift.user.who_is_in? %>">
                       <div class="left-box-v2" style = "background-color: <%= shift.department.color %>">
                         <% if shift.user.photo.file != nil %>
                           <%=(cl_image_tag shift.user.photo, height: 70, width: 70, crop: :fill, background: "#{shift.department.color}", radius: :max, border: { width: 4, color: "#{shift.department.color}" })%>

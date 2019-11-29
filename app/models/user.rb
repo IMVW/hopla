@@ -14,8 +14,8 @@ class User < ApplicationRecord
     !self.shifts.where('shifts.start_time <= ? AND ? <= shifts.end_time', end_date , start_date).empty?
   end
 
-  def who_is_in?(time_now)
-
+  def who_is_in?
+    already_scheduled?(Time.now, Time.now)
   end
 
   validates :email, presence: true
